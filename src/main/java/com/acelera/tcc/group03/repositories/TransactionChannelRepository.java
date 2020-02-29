@@ -1,15 +1,10 @@
 package com.acelera.tcc.group03.repositories;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 import com.acelera.tcc.group03.domains.TransactionChannel;
 
-public class TransactionChannelRepository extends Repository<TransactionChannel> {
-	@Override
-	protected String getSqlString() {
-		return "SELECT tc FROM TransactionChannel tc";
-	}
-	
-	@Override
-	protected Class<TransactionChannel> getClassName() {
-		return TransactionChannel.class;
-	}
+@Repository
+public interface TransactionChannelRepository extends JpaRepository<TransactionChannel, Long> {
 }

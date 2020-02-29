@@ -1,15 +1,10 @@
 package com.acelera.tcc.group03.repositories;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 import com.acelera.tcc.group03.domains.TransactionType;
 
-public class TransactionTypeRepository extends Repository<TransactionType> {
-	@Override
-	protected String getSqlString() {
-		return "SELECT tt FROM TransactionType tt";
-	}
-	
-	@Override
-	protected Class<TransactionType> getClassName() {
-		return TransactionType.class;
-	}
+@Repository
+public interface TransactionTypeRepository extends JpaRepository<TransactionType, Long> {
 }

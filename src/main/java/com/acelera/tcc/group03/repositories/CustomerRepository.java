@@ -1,15 +1,10 @@
 package com.acelera.tcc.group03.repositories;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 import com.acelera.tcc.group03.domains.Customer;
 
-public class CustomerRepository extends Repository<Customer> {
-	@Override
-	protected String getSqlString() {
-		return "SELECT c FROM Customer c";
-	}
-	
-	@Override
-	protected Class<Customer> getClassName() {
-		return Customer.class;
-	}
+@Repository
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
 }
