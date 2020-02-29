@@ -1,4 +1,4 @@
-package com.acelerajava.controletransacoes;
+package com.acelera.tcc.group03;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

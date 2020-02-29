@@ -1,4 +1,4 @@
-package com.acelerajava.controletransacoes;
+package com.acelera.tcc.group03.business;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
