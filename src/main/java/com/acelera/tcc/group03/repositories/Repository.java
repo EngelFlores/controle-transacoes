@@ -10,7 +10,7 @@ import javax.persistence.Query;
 
 import com.acelera.tcc.group03.domains.BaseEntity;
 
-public abstract class DAO<T extends BaseEntity> {
+public abstract class Repository<T extends BaseEntity> {
 	private EntityManagerFactory emf = null;
 	private EntityManager em = null;
 	

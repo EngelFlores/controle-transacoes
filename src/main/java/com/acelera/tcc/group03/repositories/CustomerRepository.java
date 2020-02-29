@@ -2,7 +2,7 @@ package com.acelera.tcc.group03.repositories;
 
 import com.acelera.tcc.group03.domains.Customer;
 
-public class CustomerDAO extends DAO<Customer> {
+public class CustomerRepository extends Repository<Customer> {
 	@Override
 	protected String getSqlString() {
 		return "SELECT c FROM Customer c";
