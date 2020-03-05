@@ -27,6 +27,10 @@ public class TransactionTypeService {
 		return this.repository.save(transactionType);
 	}
 	
+	public TransactionType update(TransactionType transactionType) {
+		return this.repository.save(transactionType);
+	}
+	
 	public void delete(Long id) {
 		this.repository.deleteById(id);
 	}
