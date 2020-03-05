@@ -29,6 +29,11 @@ public class TransactionTypeController {
     	return ResponseEntity.ok(this.service.getAll());
     }
     
+    @GetMapping ("/{id}")
+    public ResponseEntity<TransactionType> getById(@PathVariable("id") Long id) {
+    	return ResponseEntity.ok(this.service.getById(id));
+    }
+    
     @PostMapping
     public String create(@RequestBody TransactionType transactionType) {
     	return this.service.create(transactionType).toString();
