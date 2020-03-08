@@ -25,6 +25,26 @@
 			"response": []
 		},
 		{
+			"name": "GET Transaction Type By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/transaction-type/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction-type",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "POST Transaction Type",
 			"request": {
 				"method": "POST",
