@@ -2,9 +2,9 @@
 
 -- show databases;
 
--- create database transaction_system;
+ create database transaction_system;
 
--- use transaction_system;
+ use transaction_system;
 
 -- show tables;
 
