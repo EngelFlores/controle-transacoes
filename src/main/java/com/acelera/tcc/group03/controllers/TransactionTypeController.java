@@ -1,7 +1,9 @@
 package com.acelera.tcc.group03.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,8 +32,9 @@ public class TransactionTypeController {
     }
     
     @GetMapping ("/{id}")
-    public ResponseEntity<TransactionType> getById(@PathVariable("id") Long id) {
-    	return ResponseEntity.ok(this.service.getById(id));
+    public ResponseEntity<Optional<TransactionType>> getById(@PathVariable("id") Long id) {
+        Optional<TransactionType> transactionType = service.getById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(transactionType);
     }
     
     @PostMapping

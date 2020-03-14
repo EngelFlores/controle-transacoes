@@ -1,6 +1,7 @@
 package com.acelera.tcc.group03.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -19,8 +20,8 @@ public class TransactionTypeService {
 		return this.repository.findAll();
 	}
 	
-	public TransactionType getById(Long id) {
-		return this.repository.getOne(id);
+	public Optional<TransactionType> getById(Long id) {
+		return this.repository.findById(id);
 	}
 	
 	public TransactionType create(TransactionType transactionType) {

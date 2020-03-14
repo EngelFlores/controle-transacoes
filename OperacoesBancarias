@@ -1,0 +1,11 @@
+Operações bancárias sobre Conta:
+1. Obter Saldo;
+2. Gerar Extrato:
+	- Período;
+	- Tipo de Transação;
+3. Depositar;
+4. Sacar;
+5. Transferir;
+6. Pagar;
+7. Debitar;
+8. Gerar Comprovante.

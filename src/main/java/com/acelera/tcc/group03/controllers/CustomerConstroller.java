@@ -13,38 +13,37 @@ import java.util.Optional;
 @RequestMapping("/customer")
 public class CustomerConstroller {
     private CustomerService service;
-
+    
     public CustomerConstroller(CustomerService service) {
         this.service = service;
     }
-
+    
     @GetMapping
-    public ResponseEntity getAll(){
+    public ResponseEntity<List<Customer>> getAll(){
         List<Customer> customers = service.getAll();
         return ResponseEntity.status(HttpStatus.OK).body(customers);
     }
 
     @PostMapping
-    public ResponseEntity create(@RequestBody Customer customer){
+    public ResponseEntity<Customer> create(@RequestBody Customer customer){
         service.create(customer);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-
+    
     @PutMapping
-    public ResponseEntity update(@RequestBody Customer customer){
+    public ResponseEntity<Customer> update(@RequestBody Customer customer){
         service.update(customer);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-
-    @RequestMapping("/{id}")
-    @GetMapping
-    public ResponseEntity getCustomer(@PathVariable("id") Long id) {
+    
+    @GetMapping ("/{id}")
+    public ResponseEntity<Optional<Customer>> getCustomer(@PathVariable("id") Long id) {
         Optional<Customer> customer = service.getById(id);
         return ResponseEntity.status(HttpStatus.OK).body(customer);
     }
-
+    
     @DeleteMapping ("/{id}")
-    public ResponseEntity deleteCostumer(@PathVariable("id") Long id){
+    public ResponseEntity<Void> deleteCostumer(@PathVariable("id") Long id){
         service.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
