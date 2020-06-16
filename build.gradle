@@ -20,13 +20,15 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	
 	def groupSwagger = 'io.springfox'
 	def versionSwagger = '2.9.2'
 	
 	compile group: groupSwagger, name: 'springfox-swagger2', version: versionSwagger
 	compile group: groupSwagger, name: 'springfox-swagger-ui', version: versionSwagger
+	
+	runtimeOnly 'mysql:mysql-connector-java'
+	
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	
 	compile (group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.5.RELEASE') {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
@@ -34,8 +36,10 @@ dependencies {
 	
   	implementation 'org.springframework.boot:spring-boot-starter-jetty'
 	
+	compile 'org.springframework.boot:spring-boot-starter-security'
+	compile 'io.jsonwebtoken:jjwt:0.7.0'
+	
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'mysql:mysql-connector-java'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

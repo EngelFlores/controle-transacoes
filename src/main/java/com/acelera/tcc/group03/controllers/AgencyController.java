@@ -14,39 +14,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.acelera.tcc.group03.domains.TransactionType;
-import com.acelera.tcc.group03.services.TransactionTypeService;
+import com.acelera.tcc.group03.domains.Agency;
+import com.acelera.tcc.group03.services.AgencyService;
 
 @RestController
-@RequestMapping("/transaction-type")
-public class TransactionTypeController {
-    private TransactionTypeService service;
+@RequestMapping("/agency")
+public class AgencyController {
+    private AgencyService service;
     
-    public TransactionTypeController(TransactionTypeService service) {
+    public AgencyController(AgencyService service) {
         this.service = service;
     }
     
     @GetMapping
-    public ResponseEntity<List<TransactionType>> getAll() {
-        List<TransactionType> transactionTypes = service.getAll();
-        return ResponseEntity.status(HttpStatus.OK).body(transactionTypes);
+    public ResponseEntity<List<Agency>> getAll() {
+        List<Agency> agencies = service.getAll();
+        return ResponseEntity.status(HttpStatus.OK).body(agencies);
     }
     
     @GetMapping ("/{id}")
-    public ResponseEntity<Optional<TransactionType>> getById(@PathVariable("id") Long id) {
-        Optional<TransactionType> transactionType = this.service.getById(id);
-        return ResponseEntity.status(HttpStatus.OK).body(transactionType);
+    public ResponseEntity<Optional<Agency>> getById(@PathVariable("id") Long id) {
+        Optional<Agency> agency = this.service.getById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(agency);
     }
     
     @PostMapping
-    public ResponseEntity<TransactionType> create(@RequestBody TransactionType transactionType) {
-    	this.service.create(transactionType);
+    public ResponseEntity<Agency> create(@RequestBody Agency agency) {
+    	this.service.create(agency);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
     
     @PutMapping
-    public ResponseEntity<TransactionType> update(@RequestBody TransactionType transactionType) {
-    	this.service.update(transactionType);
+    public ResponseEntity<Agency> update(@RequestBody Agency agency) {
+    	this.service.update(agency);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
     
