@@ -40,6 +40,7 @@ public class AgencyController {
     
     @PostMapping
     public ResponseEntity<Agency> create(@RequestBody Agency agency) {
+    	System.out.println(agency.toString());
     	this.service.create(agency);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
