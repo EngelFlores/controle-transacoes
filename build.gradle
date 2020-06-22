@@ -4,16 +4,9 @@ plugins {
 	id 'java'
 }
 
-group = 'com.acelera-java'
+group = 'com.acelera.java'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
-
-configurations {
-	developmentOnly
-	runtimeClasspath {
-		extendsFrom developmentOnly
-	}
-}
 
 repositories {
 	mavenCentral()
@@ -26,24 +19,16 @@ dependencies {
 	compile group: groupSwagger, name: 'springfox-swagger2', version: versionSwagger
 	compile group: groupSwagger, name: 'springfox-swagger-ui', version: versionSwagger
 	
-	runtimeOnly 'mysql:mysql-connector-java'
+	compile 'mysql:mysql-connector-java:8.0.15'
 	
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	
-	compile (group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.5.RELEASE') {
-        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
-    }
-	
-  	implementation 'org.springframework.boot:spring-boot-starter-jetty'
-	
+	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+	compile 'org.springframework.boot:spring-boot-starter-web'
 	compile 'org.springframework.boot:spring-boot-starter-security'
 	compile 'io.jsonwebtoken:jjwt:0.7.0'
 	
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+	testCompile('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-    implementation 'junit:junit:4.12'
 }
 
 test {

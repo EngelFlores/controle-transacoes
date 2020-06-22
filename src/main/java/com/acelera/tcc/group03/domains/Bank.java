@@ -1,5 +1,6 @@
 package com.acelera.tcc.group03.domains;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -23,8 +24,8 @@ public class Bank implements BaseEntity {
 	@Column (name = "number")
 	private String number;	
 	
-//    @OneToMany(mappedBy="bank")
-//    private List<Agency> agencies;
+    @OneToMany(mappedBy = "bank")
+    private List<Agency> agencies = new ArrayList<>();
     
     public Long getId() {
 		return this.id;
@@ -46,13 +47,21 @@ public class Bank implements BaseEntity {
 		this.number = number;
 	}
 	
-//	public List<Agency> getAgencies() {
-//		return this.agencies;
-//	}
+	public List<Agency> getAgencies() {
+		return this.agencies;
+	}
 	
-//	public void setAgencies(List<Agency> agencies) {
-//		this.agencies = agencies;
-//	}
+	public void setAgencies(List<Agency> agencies) {
+		this.agencies = agencies;
+	}
+	
+    public void addAgency(Agency agency) {
+        this.agencies.add(agency);
+    }
+    
+    public void removeAgency(Agency agency) {
+        this.agencies.remove(agency);
+    }
 	
 	@Override
     public String toString() {

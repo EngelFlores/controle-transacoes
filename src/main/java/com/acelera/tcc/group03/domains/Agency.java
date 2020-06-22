@@ -1,14 +1,11 @@
 package com.acelera.tcc.group03.domains;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,13 +17,10 @@ public class Agency implements BaseEntity {
 	private Long id;
 	
     @ManyToOne
-    @JoinColumn(name = "bank_id")
-	private Bank bank;
-	
-    @OneToMany(mappedBy="agency")
-    private List<CustomerAccount> customerAccounts;
+    @JoinColumn(name="bank_id", nullable=false)
+    private Bank bank;
     
-	@Column (name = "name")
+    @Column (name = "name")
 	private String name;
 	
 	@Column (name = "number")
@@ -53,16 +47,8 @@ public class Agency implements BaseEntity {
 		this.number = number;
 	}
 	
-	public Bank getBank() {
-		return this.bank;
-	}
-	
-	public void setBank(Bank bank) {
-		this.bank = bank;
-	}
-	
 	@Override
     public String toString() {
-        return "Agency ID: [" + this.getId() + "] Name: [" + this.getName() + "] Type: [" + this.getNumber() + "]";
+        return "Agency ID: [" + this.getId() + "] Name: [" + this.getName() + "] Number: [" + this.getNumber() + "]";
     }
 }
