@@ -1,14 +1,12 @@
 package com.acelera.tcc.group03.domains;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,12 +17,9 @@ public class Agency implements BaseEntity {
 	@Column (name = "id")
 	private Long id;
 	
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bank_id")
 	private Bank bank;
-	
-    @OneToMany(mappedBy="agency")
-    private List<CustomerAccount> customerAccounts;
     
 	@Column (name = "name")
 	private String name;

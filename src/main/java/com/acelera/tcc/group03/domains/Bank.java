@@ -23,8 +23,8 @@ public class Bank implements BaseEntity {
 	@Column (name = "number")
 	private String number;	
 	
-//    @OneToMany(mappedBy="bank")
-//    private List<Agency> agencies;
+    @OneToMany(mappedBy="bank")
+    private List<Agency> agencies;
     
     public Long getId() {
 		return this.id;
@@ -45,14 +45,6 @@ public class Bank implements BaseEntity {
 	public void setNumber(String number) {
 		this.number = number;
 	}
-	
-//	public List<Agency> getAgencies() {
-//		return this.agencies;
-//	}
-	
-//	public void setAgencies(List<Agency> agencies) {
-//		this.agencies = agencies;
-//	}
 	
 	@Override
     public String toString() {
