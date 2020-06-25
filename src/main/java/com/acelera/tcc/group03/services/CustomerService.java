@@ -20,6 +20,9 @@ public class CustomerService {
     }
 
     public Customer create(Customer customer) {
+        if(customer.getName() == null){
+            throw new NullPointerException();
+        }
         return repository.save(customer);
     }
 
