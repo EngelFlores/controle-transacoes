@@ -2,10 +2,13 @@ package com.acelera.tcc.group03.domains;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,8 +26,9 @@ public class Bank implements BaseEntity {
 	@Column (name = "number")
 	private String number;	
 	
-    @OneToMany(mappedBy="bank")
-    private List<Agency> agencies;
+	@OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinColumn (name = "bank_id", nullable = false)
+	private List<Agency> agencies;
     
     public Long getId() {
 		return this.id;
@@ -44,6 +48,14 @@ public class Bank implements BaseEntity {
 	
 	public void setNumber(String number) {
 		this.number = number;
+	}
+	
+	public List<Agency> getAgencies() {
+		return this.agencies;
+	}
+	
+	public void setAgencies(List<Agency> agencies) {
+		this.agencies = agencies;
 	}
 	
 	@Override
