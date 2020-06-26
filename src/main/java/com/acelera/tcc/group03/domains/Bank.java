@@ -2,15 +2,14 @@ package com.acelera.tcc.group03.domains;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table (name = "bank")
@@ -26,8 +25,8 @@ public class Bank implements BaseEntity {
 	@Column (name = "number")
 	private String number;	
 	
-	@OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@JoinColumn (name = "bank_id", nullable = false)
+	@OneToMany (mappedBy = "bank")
+	@JsonIgnoreProperties("bank")
 	private List<Agency> agencies;
     
     public Long getId() {

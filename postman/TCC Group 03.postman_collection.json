@@ -54,7 +54,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjc4NDgwMH0.LP5PqBaYDTh-zruTHbLABtc-3RHSNbkTdEB7gX7hGhn45udRdn1r-2LIbW7Z2_okYzEmwcfE960BG2d-xIpvew",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjg3NzEwM30.Mjddna3e1F2sS4X6ztC7O9HkGZBUUM94cW-Cn3DKg0_nOOV7jzXQHxL1CbOko53_zC3J6TbuAVx1sHYbU1TzCg",
 								"type": "text"
 							}
 						],
@@ -88,7 +88,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjc4NDgwMH0.LP5PqBaYDTh-zruTHbLABtc-3RHSNbkTdEB7gX7hGhn45udRdn1r-2LIbW7Z2_okYzEmwcfE960BG2d-xIpvew",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjg3NzEwM30.Mjddna3e1F2sS4X6ztC7O9HkGZBUUM94cW-Cn3DKg0_nOOV7jzXQHxL1CbOko53_zC3J6TbuAVx1sHYbU1TzCg",
 								"type": "text"
 							}
 						],
@@ -123,7 +123,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjc4NDgwMH0.LP5PqBaYDTh-zruTHbLABtc-3RHSNbkTdEB7gX7hGhn45udRdn1r-2LIbW7Z2_okYzEmwcfE960BG2d-xIpvew",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjk2NDUxMH0.fXMGRyQqgc-tAcrwn7sKBjOuJYNJY7IXXlJCRo4WBnJuAFCVdLCC7MnNMXgvc7jtWIv6_iVmo3BjQuf4PdQv8w",
 								"type": "text"
 							}
 						],
@@ -214,13 +214,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjc5MzU3NH0.p5pp4lQltyWl2Ls3lT3XQyxnej6v5GPk__2ftwSzRZ8-5zBysf8Oa2KLpgXvPDV_knfxayckvVxYSRyNR0ECcA",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MzIxMzYwOH0.imJDcBsVxnq8DxeOleGxnKQQk5Cb61JpsBYs7jiBbiYA5Opygkod9j2g5v3fzXbulQ8JXSmTQuMz5xe73f18fA",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"bank_id\": \"4\",\n    \"name\": \"Centenária\",\n    \"number\": \"1899\"\n}",
+							"raw": "{\n    \"bank\": {\n        \"id\": \"1\"\n    },\n    \"name\": \"Júlio de Castilhos\",\n    \"number\": \"3529\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
