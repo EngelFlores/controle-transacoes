@@ -14,8 +14,9 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.doNothing;
 
-class CustomerConstrollerTest {
+class CustomerControllerTest {
     private CustomerService customerService;
 
     @BeforeEach
@@ -65,13 +66,16 @@ class CustomerConstrollerTest {
         Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
         customerService.create(customer);
         customer.setId(12L);
-        Mockito.when(customerService.getById(customer.getId())).thenReturn(java.util.Optional.of(customer));
-        customerService.delete(customer.getId());
+
+        doNothing().when(customerService).delete(customer.getId());
 
         CustomerConstroller customerConstroller = new CustomerConstroller(customerService);
-        ResponseEntity<Void> current = customerConstroller.deleteCostumer(customer.getId());
 
-        assertEquals(current, ResponseEntity.status(HttpStatus.NO_CONTENT).build());
+        ResponseEntity<Void> status = customerConstroller.deleteCostumer(customer.getId());
+        Optional<Customer> customerDeleted = customerService.getById(customer.getId());
+
+        assertEquals(status, ResponseEntity.status(HttpStatus.NO_CONTENT).build());
+        assertNotEquals(customer, customerDeleted);
 
     }
 
