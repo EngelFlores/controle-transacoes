@@ -1,5 +1,8 @@
 package com.acelera.tcc.group03.domains;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -25,9 +28,9 @@ public class Bank implements BaseEntity {
 	
 	@Column (name = "number")
 	private String number;	
-	
-	@OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@JoinColumn (name = "bank_id", nullable = false)
+
+	@OneToMany (mappedBy = "bank")
+	@JsonIgnoreProperties("bank")
 	private List<Agency> agencies;
     
     public Long getId() {
