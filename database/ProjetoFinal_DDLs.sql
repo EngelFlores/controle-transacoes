@@ -71,6 +71,7 @@ CREATE TABLE transaction_account (
   transaction_type_id      int(05)      NOT NULL,
   customer_account_id      int(20)      NOT NULL,
   amount                   double(12,4) NOT NULL,
+  transaction_moment       datetime     NOT NULL,
   PRIMARY KEY (id),
   KEY FK_TRANSACTION_CHANNEL_IDX (transaction_channel_id),
   CONSTRAINT FK_TRANSACTION_CHANNEL FOREIGN KEY (transaction_channel_id) REFERENCES transaction_channel (id),
