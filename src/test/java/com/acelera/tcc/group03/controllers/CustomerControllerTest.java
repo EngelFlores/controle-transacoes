@@ -50,7 +50,7 @@ class CustomerControllerTest {
     }
 
     @Test
-    void returnStatus201WhenPostCustomers(){
+    void returnStatus204WhenPostCustomers(){
         Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
         Mockito.when(customerService.create(customer)).thenReturn(customer);
 
@@ -62,7 +62,7 @@ class CustomerControllerTest {
     }
 
     @Test
-    void returnStatus201WhenDeleteCustomers(){
+    void returnStatus204WhenDeleteCustomers(){
         Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
         customerService.create(customer);
         customer.setId(12L);
