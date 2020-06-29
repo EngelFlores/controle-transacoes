@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -13,11 +14,11 @@ import javax.persistence.Table;
 @Table (name = "customer")
 public class Customer implements BaseEntity {
 	@Id
-	@GeneratedValue (generator = "increment")
-	@Column (name = "id")
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 	
-    @OneToMany(mappedBy="customer")
+    @OneToMany (mappedBy = "customer")
     private List<CustomerAccount> customerAccounts;
 	
 	@Column (name = "name")
@@ -37,7 +38,7 @@ public class Customer implements BaseEntity {
 
 	@Override
 	public Long getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(Long id) {
@@ -45,29 +46,29 @@ public class Customer implements BaseEntity {
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public CustomerType getType() {
-		return this.type;
+		return type;
 	}
-	
+
 	public void setType(CustomerType type) {
 		this.type = type;
 	}
-	
+
 	public String getTin() {
-		return this.tin;
+		return tin;
 	}
-	
+
 	public void setTin(String tin) {
 		this.tin = tin;
 	}
-	
+
 	@Override
     public String toString() {
         return "Customer ID:[" + this.getId() + "] Name: [" + this.getName() + "] Type: [" + this.getType() + "] TIN: [" + this.getTin() + "]";

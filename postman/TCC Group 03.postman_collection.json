@@ -9,7 +9,7 @@
 			"name": "Bank",
 			"item": [
 				{
-					"name": "GET Banks",
+					"name": "Banks",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -28,7 +28,7 @@
 					"response": []
 				},
 				{
-					"name": "GET Bank By Id",
+					"name": "Bank By Id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -48,13 +48,13 @@
 					"response": []
 				},
 				{
-					"name": "POST Bank",
+					"name": "NEW Bank",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjc4NDgwMH0.LP5PqBaYDTh-zruTHbLABtc-3RHSNbkTdEB7gX7hGhn45udRdn1r-2LIbW7Z2_okYzEmwcfE960BG2d-xIpvew",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjg3NzEwM30.Mjddna3e1F2sS4X6ztC7O9HkGZBUUM94cW-Cn3DKg0_nOOV7jzXQHxL1CbOko53_zC3J6TbuAVx1sHYbU1TzCg",
 								"type": "text"
 							}
 						],
@@ -88,7 +88,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjc4NDgwMH0.LP5PqBaYDTh-zruTHbLABtc-3RHSNbkTdEB7gX7hGhn45udRdn1r-2LIbW7Z2_okYzEmwcfE960BG2d-xIpvew",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjg3NzEwM30.Mjddna3e1F2sS4X6ztC7O9HkGZBUUM94cW-Cn3DKg0_nOOV7jzXQHxL1CbOko53_zC3J6TbuAVx1sHYbU1TzCg",
 								"type": "text"
 							}
 						],
@@ -117,13 +117,13 @@
 					"response": []
 				},
 				{
-					"name": "DELETE Bank",
+					"name": "Bank",
 					"request": {
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjc4NDgwMH0.LP5PqBaYDTh-zruTHbLABtc-3RHSNbkTdEB7gX7hGhn45udRdn1r-2LIbW7Z2_okYzEmwcfE960BG2d-xIpvew",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjk2NDUxMH0.fXMGRyQqgc-tAcrwn7sKBjOuJYNJY7IXXlJCRo4WBnJuAFCVdLCC7MnNMXgvc7jtWIv6_iVmo3BjQuf4PdQv8w",
 								"type": "text"
 							}
 						],
@@ -169,7 +169,7 @@
 			"name": "Agency",
 			"item": [
 				{
-					"name": "GET Agencies",
+					"name": "Agencies",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -188,7 +188,7 @@
 					"response": []
 				},
 				{
-					"name": "GET Agency By Id",
+					"name": "Agency By Id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -208,19 +208,19 @@
 					"response": []
 				},
 				{
-					"name": "POST Agency",
+					"name": "NEW Agency",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjc5MzU3NH0.p5pp4lQltyWl2Ls3lT3XQyxnej6v5GPk__2ftwSzRZ8-5zBysf8Oa2KLpgXvPDV_knfxayckvVxYSRyNR0ECcA",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MzIxMzYwOH0.imJDcBsVxnq8DxeOleGxnKQQk5Cb61JpsBYs7jiBbiYA5Opygkod9j2g5v3fzXbulQ8JXSmTQuMz5xe73f18fA",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"bank_id\": \"4\",\n    \"name\": \"Centenária\",\n    \"number\": \"1899\"\n}",
+							"raw": "{\n    \"bank\": {\n        \"id\": \"1\"\n    },\n    \"name\": \"Júlio de Castilhos\",\n    \"number\": \"3529\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -248,7 +248,7 @@
 			"name": "Transaction Type",
 			"item": [
 				{
-					"name": "GET Transaction Types",
+					"name": "Transaction Types",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -267,7 +267,7 @@
 					"response": []
 				},
 				{
-					"name": "GET Transaction Type By Id",
+					"name": "Transaction Type By Id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -293,7 +293,7 @@
 					"response": []
 				},
 				{
-					"name": "POST Transaction Type",
+					"name": "NEW Transaction Type",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -327,47 +327,6 @@
 							"port": "8080",
 							"path": [
 								"transaction-type"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE Transaction Type",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MjY5MjUzN30.OEobgPL4tAS3B9qpN8glGLpGRZyetNnKfBxlO7TKuERUj4lX8KpfVnrN47aekri1E84o2swWzDExRpkAKSeZUQ",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"State Tax\",\n\t\"action\": \"CREDIT\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/transaction-type/12",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"transaction-type",
-								"12"
 							]
 						}
 					},
@@ -410,6 +369,47 @@
 					"response": []
 				},
 				{
+					"name": "Transaction Type",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MjY5MjUzN30.OEobgPL4tAS3B9qpN8glGLpGRZyetNnKfBxlO7TKuERUj4lX8KpfVnrN47aekri1E84o2swWzDExRpkAKSeZUQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"State Tax\",\n\t\"action\": \"CREDIT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/transaction-type/12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction-type",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Swagger Transaction Type",
 					"request": {
 						"method": "GET",
@@ -436,7 +436,7 @@
 			"name": "Customer",
 			"item": [
 				{
-					"name": "GET Customers",
+					"name": "Customers",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -455,7 +455,7 @@
 					"response": []
 				},
 				{
-					"name": "GET Customer By Id",
+					"name": "Customer By Id",
 					"request": {
 						"method": "GET",
 						"header": [],
