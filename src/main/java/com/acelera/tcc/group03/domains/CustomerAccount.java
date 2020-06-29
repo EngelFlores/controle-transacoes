@@ -3,6 +3,7 @@ package com.acelera.tcc.group03.domains;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -12,16 +13,16 @@ import javax.persistence.Table;
 @Table (name = "customer_account")
 public class CustomerAccount implements BaseEntity {
 	@Id
-	@GeneratedValue (generator = "increment")
-	@Column (name = "id")
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 	
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "id_customer")
 	private Customer customer;
     
     @ManyToOne
-    @JoinColumn(name = "agency_id")
+    @JoinColumn(name = "id_agency")
 	private Agency agency;
     
 	@Column (name = "account_balance")

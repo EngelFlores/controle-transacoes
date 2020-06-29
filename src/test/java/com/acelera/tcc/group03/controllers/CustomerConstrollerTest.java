@@ -17,62 +17,73 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerConstrollerTest {
     private CustomerService customerService;
-
+    
     @BeforeEach
-    void setUp(){
+    void setUp() {
         this.customerService = Mockito.mock(CustomerService.class);
     }
-
+    
     @Test
-    void returnStatus200WhenGetCustomers(){
-        Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
-        Mockito.when(customerService.getAll()).thenReturn(Collections.singletonList(customer));
-
-        CustomerConstroller customerConstroller = new CustomerConstroller(customerService);
+    void returnStatus200WhenGetCustomers() {
+        Customer customer = new Customer();
+        customer.setName("Pedro");
+        customer.setType(CustomerType.INDIVIDUAL);
+        customer.setTin("123456");
+        
+        Mockito.when(this.customerService.getAll()).thenReturn(Collections.singletonList(customer));
+        
+        CustomerConstroller customerConstroller = new CustomerConstroller(this.customerService);
         ResponseEntity<List<Customer>> current = customerConstroller.getAll();
-
+        
         assertEquals(current, ResponseEntity.status(HttpStatus.OK).body(Collections.singletonList(customer)));
-
     }
-
+    
     @Test
     void returnStatus200WhenGetOneCustomers(){
-        Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
-        customer.setId(10L);
-        Mockito.when(customerService.getById(customer.getId())).thenReturn(java.util.Optional.of(customer));
-
-        CustomerConstroller customerConstroller = new CustomerConstroller(customerService);
-        ResponseEntity<Optional<Customer>> current = customerConstroller.getCustomer(customer.getId());
-
+        Long customerId = 1L;
+        Customer customer = new Customer();
+        customer.setName("Pedro");
+        customer.setType(CustomerType.INDIVIDUAL);
+        customer.setTin("123456");
+        Mockito.when(this.customerService.getById(customerId)).thenReturn(java.util.Optional.of(customer));
+        
+        CustomerConstroller customerConstroller = new CustomerConstroller(this.customerService);
+        ResponseEntity<Optional<Customer>> current = customerConstroller.getCustomer(customerId);
+        
         assertEquals(current, ResponseEntity.status(HttpStatus.OK).body(java.util.Optional.of(customer)));
-
     }
-
+    
     @Test
     void returnStatus201WhenPostCustomers(){
-        Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
-        Mockito.when(customerService.create(customer)).thenReturn(customer);
-
-        CustomerConstroller customerConstroller = new CustomerConstroller(customerService);
+        Customer customer = new Customer();
+        customer.setName("Pedro");
+        customer.setType(CustomerType.INDIVIDUAL);
+        customer.setTin("123456");
+        
+        Mockito.when(this.customerService.create(customer)).thenReturn(customer);
+        
+        CustomerConstroller customerConstroller = new CustomerConstroller(this.customerService);
         ResponseEntity<Customer> current = customerConstroller.create(customer);
-
+        
         assertEquals(current, ResponseEntity.status(HttpStatus.NO_CONTENT).build());
-
     }
-
+    
+    /*
     @Test
     void returnStatus201WhenDeleteCustomers(){
-        Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
-        customerService.create(customer);
-        customer.setId(12L);
-        Mockito.when(customerService.getById(customer.getId())).thenReturn(java.util.Optional.of(customer));
+        Long customerId = 1L;
+        Customer customer = new Customer();
+        customer.setName("Pedro");
+        customer.setType(CustomerType.INDIVIDUAL);
+        customer.setTin("123456");
+        
+        Mockito.when(this.customerService.getById(customerId)).thenReturn(java.util.Optional.of(customer));
         customerService.delete(customer.getId());
-
-        CustomerConstroller customerConstroller = new CustomerConstroller(customerService);
-        ResponseEntity<Void> current = customerConstroller.deleteCostumer(customer.getId());
-
+        
+        CustomerConstroller customerConstroller = new CustomerConstroller(this.customerService);
+        ResponseEntity<Void> current = customerConstroller.deleteCostumer(customerId);
+        
         assertEquals(current, ResponseEntity.status(HttpStatus.NO_CONTENT).build());
-
     }
-
+    */
 }

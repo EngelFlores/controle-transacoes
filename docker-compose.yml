@@ -1,0 +1,36 @@
+version: '3.5'
+
+
+networks:
+  transaction-network:
+
+
+volumes:
+  mysql-db:
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-server
+    environment:
+      MYSQL_DATABASE: 'transaction'
+      MYSQL_ROOT_PASSWORD: 'secretapacas'
+    ports:
+      - "3306:3306"
+    networks:
+      - transaction-network
+    volumes:
+      - mysql-db:/var/lib/mysql
+
+  transaction-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: transaction:latest
+    container_name: transaction
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    networks:
+      - transaction-network

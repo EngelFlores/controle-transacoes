@@ -3,28 +3,32 @@ package com.acelera.tcc.group03.domains;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table (name = "agency")
 public class Agency implements BaseEntity {
 	@Id
-	@GeneratedValue (generator = "increment")
-	@Column (name = "id")
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
 	private Long id;
-	
-    @ManyToOne
-    @JoinColumn(name="bank_id", nullable=false)
-    private Bank bank;
     
     @Column (name = "name")
 	private String name;
 	
 	@Column (name = "number")
 	private String number;
+	
+	@ManyToOne
+	@JoinColumn (name = "id_bank")
+	@JsonIgnoreProperties ("agencies")
+	private Bank bank;
 	
 	@Override
 	public Long getId() {
@@ -45,6 +49,14 @@ public class Agency implements BaseEntity {
 	
 	public void setNumber(String number) {
 		this.number = number;
+	}
+	
+	public Bank getBank() {
+		return bank;
+	}
+	
+	public void setBank(Bank bank) {
+		this.bank = bank;
 	}
 	
 	@Override
