@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -13,11 +14,11 @@ import javax.persistence.Table;
 @Table (name = "customer")
 public class Customer implements BaseEntity {
 	@Id
-	@GeneratedValue (generator = "increment")
-	@Column (name = "id")
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 	
-    @OneToMany(mappedBy="customer")
+    @OneToMany (mappedBy = "customer")
     private List<CustomerAccount> customerAccounts;
 	
 	@Column (name = "name")
@@ -28,22 +29,12 @@ public class Customer implements BaseEntity {
 	
 	@Column (name = "tin")
 	private String tin;
-
-	public Customer(String name, CustomerType type, String tin) {
-		this.name = name;
-		this.type = type;
-		this.tin = tin;
-	}
-
+	
 	@Override
 	public Long getId() {
 		return this.id;
 	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
+	
 	public String getName() {
 		return this.name;
 	}

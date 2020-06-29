@@ -9,7 +9,7 @@
 			"name": "Bank",
 			"item": [
 				{
-					"name": "GET Banks",
+					"name": "Banks",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -28,7 +28,7 @@
 					"response": []
 				},
 				{
-					"name": "GET Bank By Id",
+					"name": "Bank By Id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -48,7 +48,7 @@
 					"response": []
 				},
 				{
-					"name": "POST Bank",
+					"name": "NEW Bank",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -117,7 +117,7 @@
 					"response": []
 				},
 				{
-					"name": "DELETE Bank",
+					"name": "Bank",
 					"request": {
 						"method": "DELETE",
 						"header": [
@@ -169,7 +169,7 @@
 			"name": "Agency",
 			"item": [
 				{
-					"name": "GET Agencies",
+					"name": "Agencies",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -188,7 +188,7 @@
 					"response": []
 				},
 				{
-					"name": "GET Agency By Id",
+					"name": "Agency By Id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -208,7 +208,7 @@
 					"response": []
 				},
 				{
-					"name": "POST Agency",
+					"name": "NEW Agency",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -248,7 +248,7 @@
 			"name": "Transaction Type",
 			"item": [
 				{
-					"name": "GET Transaction Types",
+					"name": "Transaction Types",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -267,7 +267,7 @@
 					"response": []
 				},
 				{
-					"name": "GET Transaction Type By Id",
+					"name": "Transaction Type By Id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -293,7 +293,7 @@
 					"response": []
 				},
 				{
-					"name": "POST Transaction Type",
+					"name": "NEW Transaction Type",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -327,47 +327,6 @@
 							"port": "8080",
 							"path": [
 								"transaction-type"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE Transaction Type",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MjY5MjUzN30.OEobgPL4tAS3B9qpN8glGLpGRZyetNnKfBxlO7TKuERUj4lX8KpfVnrN47aekri1E84o2swWzDExRpkAKSeZUQ",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"State Tax\",\n\t\"action\": \"CREDIT\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/transaction-type/12",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"transaction-type",
-								"12"
 							]
 						}
 					},
@@ -410,6 +369,47 @@
 					"response": []
 				},
 				{
+					"name": "Transaction Type",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MjY5MjUzN30.OEobgPL4tAS3B9qpN8glGLpGRZyetNnKfBxlO7TKuERUj4lX8KpfVnrN47aekri1E84o2swWzDExRpkAKSeZUQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"State Tax\",\n\t\"action\": \"CREDIT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/transaction-type/12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction-type",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Swagger Transaction Type",
 					"request": {
 						"method": "GET",
@@ -436,7 +436,7 @@
 			"name": "Customer",
 			"item": [
 				{
-					"name": "GET Customers",
+					"name": "Customers",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -455,7 +455,7 @@
 					"response": []
 				},
 				{
-					"name": "GET Customer By Id",
+					"name": "Customer By Id",
 					"request": {
 						"method": "GET",
 						"header": [],

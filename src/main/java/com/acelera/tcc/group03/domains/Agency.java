@@ -3,6 +3,7 @@ package com.acelera.tcc.group03.domains;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,8 +15,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table (name = "agency")
 public class Agency implements BaseEntity {
 	@Id
-	@GeneratedValue (generator = "increment")
-	@Column (name = "id")
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
 	private Long id;
     
     @Column (name = "name")
@@ -25,7 +26,7 @@ public class Agency implements BaseEntity {
 	private String number;
 	
 	@ManyToOne
-	@JoinColumn (name = "bank_id")
+	@JoinColumn (name = "id_bank")
 	@JsonIgnoreProperties ("agencies")
 	private Bank bank;
 	
