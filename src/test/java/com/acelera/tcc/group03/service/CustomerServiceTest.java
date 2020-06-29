@@ -1,14 +1,11 @@
 package com.acelera.tcc.group03.services;
 
-import com.acelera.tcc.group03.controllers.CustomerConstroller;
 import com.acelera.tcc.group03.domains.Customer;
 import com.acelera.tcc.group03.domains.CustomerType;
 import com.acelera.tcc.group03.repositories.CustomerRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -43,7 +40,5 @@ class CustomerServiceTest {
         });
         Mockito.verifyNoInteractions(customerRepository);
     }
-
-
 
 }
