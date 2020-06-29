@@ -29,7 +29,17 @@ public class Customer implements BaseEntity {
 	
 	@Column (name = "tin")
 	private String tin;
-	
+
+	public Customer() {
+	}
+
+	public Customer(Long id, String name, CustomerType type, String tin) {
+		this.id = id;
+		this.name = name;
+		this.type = type;
+		this.tin = tin;
+	}
+
 	@Override
 	public Long getId() {
 		return this.id;
