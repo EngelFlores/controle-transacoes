@@ -13,11 +13,11 @@ import java.util.Optional;
 @RequestMapping("/customer")
 public class CustomerConstroller {
     private CustomerService service;
-    
+
     public CustomerConstroller(CustomerService service) {
         this.service = service;
     }
-    
+
     @GetMapping
     public ResponseEntity<List<Customer>> getAll(){
         List<Customer> customers = service.getAll();
@@ -29,19 +29,19 @@ public class CustomerConstroller {
         service.create(customer);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-    
+
     @PutMapping
     public ResponseEntity<Customer> update(@RequestBody Customer customer){
         service.update(customer);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-    
+
     @GetMapping ("/{id}")
     public ResponseEntity<Optional<Customer>> getCustomer(@PathVariable("id") Long id) {
         Optional<Customer> customer = service.getById(id);
         return ResponseEntity.status(HttpStatus.OK).body(customer);
     }
-    
+
     @DeleteMapping ("/{id}")
     public ResponseEntity<Void> deleteCostumer(@PathVariable("id") Long id){
         service.delete(id);
