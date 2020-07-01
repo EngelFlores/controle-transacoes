@@ -20,7 +20,8 @@ public class CustomerAccountServiceTest {
 
     @Test
     void saveCustomerAccount(){
-        Customer customer = new Customer(10L,"Joao", CustomerType.INDIVIDUAL, "123456");
+        Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
+        customer.setId(10L);
         Bank bank = new Bank(100L,"Bank1","12345");
         Agency agency = new Agency(102L,"Agency1","123456", bank);
 
@@ -38,7 +39,8 @@ public class CustomerAccountServiceTest {
 
     @Test
     void failsToSaveCustomerAccount(){
-        Customer customer = new Customer(10L,"Joao", CustomerType.INDIVIDUAL, "123456");
+        Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
+        customer.setId(10L);
         Bank bank = new Bank(100L,"Bank1","12345");
         Agency agency = new Agency(102L,"Agency1","123456", bank);
 
