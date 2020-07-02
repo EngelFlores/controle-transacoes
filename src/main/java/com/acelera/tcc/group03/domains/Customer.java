@@ -29,36 +29,49 @@ public class Customer implements BaseEntity {
 	
 	@Column (name = "tin")
 	private String tin;
-	
+
+	public Customer() {
+	}
+
+	public Customer(String name, CustomerType type, String tin) {
+		this.name = name;
+		this.type = type;
+		this.tin = tin;
+	}
+
 	@Override
 	public Long getId() {
-		return this.id;
+		return id;
 	}
-	
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getName() {
-		return this.name;
+		return name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public CustomerType getType() {
-		return this.type;
+		return type;
 	}
-	
+
 	public void setType(CustomerType type) {
 		this.type = type;
 	}
-	
+
 	public String getTin() {
-		return this.tin;
+		return tin;
 	}
-	
+
 	public void setTin(String tin) {
 		this.tin = tin;
 	}
-	
+
 	@Override
     public String toString() {
         return "Customer ID:[" + this.getId() + "] Name: [" + this.getName() + "] Type: [" + this.getType() + "] TIN: [" + this.getTin() + "]";
