@@ -1,4 +1,4 @@
-package com.acelera.tcc.group03.service;
+package com.acelera.tcc.group03.services;
 
 import com.acelera.tcc.group03.domains.*;
 import com.acelera.tcc.group03.repositories.CustomerAccountRepository;
