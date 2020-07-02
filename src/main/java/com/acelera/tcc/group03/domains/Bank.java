@@ -29,8 +29,17 @@ public class Bank implements BaseEntity {
 	@OneToMany (mappedBy = "bank")
 	@JsonIgnoreProperties("bank")
 	private List<Agency> agencies;
-    
-    public Long getId() {
+
+	public Bank() {
+	}
+
+	public Bank(Long id, String name, String number) {
+		this.id = id;
+		this.name = name;
+		this.number = number;
+	}
+
+	public Long getId() {
 		return this.id;
 	}
     

@@ -30,6 +30,9 @@ public class Customer implements BaseEntity {
 	@Column (name = "tin")
 	private String tin;
 
+	public Customer() {
+	}
+
 	public Customer(String name, CustomerType type, String tin) {
 		this.name = name;
 		this.type = type;

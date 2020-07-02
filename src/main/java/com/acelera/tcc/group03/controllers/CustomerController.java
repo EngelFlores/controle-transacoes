@@ -11,10 +11,10 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/customer")
-public class CustomerConstroller {
+public class CustomerController {
     private CustomerService service;
 
-    public CustomerConstroller(CustomerService service) {
+    public CustomerController(CustomerService service) {
         this.service = service;
     }
 

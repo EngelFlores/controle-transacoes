@@ -29,8 +29,8 @@ class CustomerControllerTest {
         Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
         Mockito.when(customerService.getAll()).thenReturn(Collections.singletonList(customer));
 
-        CustomerConstroller customerConstroller = new CustomerConstroller(customerService);
-        ResponseEntity<List<Customer>> current = customerConstroller.getAll();
+        CustomerController customerController = new CustomerController(customerService);
+        ResponseEntity<List<Customer>> current = customerController.getAll();
 
         assertEquals(current, ResponseEntity.status(HttpStatus.OK).body(Collections.singletonList(customer)));
 
@@ -42,8 +42,8 @@ class CustomerControllerTest {
         customer.setId(10L);
         Mockito.when(customerService.getById(customer.getId())).thenReturn(java.util.Optional.of(customer));
 
-        CustomerConstroller customerConstroller = new CustomerConstroller(customerService);
-        ResponseEntity<Optional<Customer>> current = customerConstroller.getCustomer(customer.getId());
+        CustomerController customerController = new CustomerController(customerService);
+        ResponseEntity<Optional<Customer>> current = customerController.getCustomer(customer.getId());
 
         assertEquals(current, ResponseEntity.status(HttpStatus.OK).body(java.util.Optional.of(customer)));
 
@@ -54,8 +54,8 @@ class CustomerControllerTest {
         Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
         Mockito.when(customerService.create(customer)).thenReturn(customer);
 
-        CustomerConstroller customerConstroller = new CustomerConstroller(customerService);
-        ResponseEntity<Customer> current = customerConstroller.create(customer);
+        CustomerController customerController = new CustomerController(customerService);
+        ResponseEntity<Customer> current = customerController.create(customer);
 
         assertEquals(current, ResponseEntity.status(HttpStatus.NO_CONTENT).build());
 
@@ -69,9 +69,9 @@ class CustomerControllerTest {
 
         doNothing().when(customerService).delete(customer.getId());
 
-        CustomerConstroller customerConstroller = new CustomerConstroller(customerService);
+        CustomerController customerController = new CustomerController(customerService);
 
-        ResponseEntity<Void> status = customerConstroller.deleteCostumer(customer.getId());
+        ResponseEntity<Void> status = customerController.deleteCostumer(customer.getId());
         Optional<Customer> customerDeleted = customerService.getById(customer.getId());
 
         assertEquals(status, ResponseEntity.status(HttpStatus.NO_CONTENT).build());
