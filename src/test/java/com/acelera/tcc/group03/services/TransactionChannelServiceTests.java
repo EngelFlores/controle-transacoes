@@ -1,4 +1,4 @@
-package services;
+package com.acelera.tcc.group03.services;
 
 import com.acelera.tcc.group03.domains.TransactionChannel;
 import com.acelera.tcc.group03.repositories.TransactionChannelRepository;

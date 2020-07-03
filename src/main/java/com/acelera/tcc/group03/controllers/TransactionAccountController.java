@@ -14,39 +14,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.acelera.tcc.group03.domains.TransactionType;
-import com.acelera.tcc.group03.services.TransactionTypeService;
+import com.acelera.tcc.group03.domains.TransactionAccount;
+import com.acelera.tcc.group03.services.TransactionAccountService;
 
 @RestController
-@RequestMapping("/transaction-type")
-public class TransactionTypeController {
-    private TransactionTypeService service;
-    
-    public TransactionTypeController(TransactionTypeService service) {
-        this.service = service;
-    }
-    
+@RequestMapping("/transaction-account")
+public class TransactionAccountController {
+	private TransactionAccountService service;
+	
+	public TransactionAccountController(TransactionAccountService service) {
+		this.service = service;
+	}
+	
     @GetMapping
-    public ResponseEntity<List<TransactionType>> getAll() {
-        List<TransactionType> transactionTypes = this.service.getAll();
-        return ResponseEntity.status(HttpStatus.OK).body(transactionTypes);
+    public ResponseEntity<List<TransactionAccount>> getAll() {
+        List<TransactionAccount> transactionAccounts = this.service.getAll();
+        return ResponseEntity.status(HttpStatus.OK).body(transactionAccounts);
     }
     
     @GetMapping ("/{id}")
-    public ResponseEntity<Optional<TransactionType>> getById(@PathVariable("id") Long id) {
-        Optional<TransactionType> transactionType = this.service.getById(id);
-        return ResponseEntity.status(HttpStatus.OK).body(transactionType);
+    public ResponseEntity<Optional<TransactionAccount>> getById(@PathVariable("id") Long id) {
+        Optional<TransactionAccount> transactionAccount = this.service.getById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(transactionAccount);
     }
     
     @PostMapping
-    public ResponseEntity<TransactionType> create(@RequestBody TransactionType transactionType) {
-    	this.service.create(transactionType);
+    public ResponseEntity<TransactionAccount> create(@RequestBody TransactionAccount transactionAccount) {
+    	this.service.create(transactionAccount);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
     
     @PutMapping
-    public ResponseEntity<TransactionType> update(@RequestBody TransactionType transactionType) {
-    	this.service.update(transactionType);
+    public ResponseEntity<TransactionAccount> update(@RequestBody TransactionAccount transactionAccount) {
+    	this.service.update(transactionAccount);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
     

@@ -9,3 +9,11 @@ Operações bancárias sobre Conta:
 6. Pagar;
 7. Debitar;
 8. Gerar Comprovante.
+
+
+0.A. TransactionAccount (JPA+Controller+Service+Repository): Fábio
+0.B. Controller 'BankOperation': Fábio
+1. Obter Saldo (GET na CustomerAccount gerando registro da operação na TransactionAccount): Pablo
+2. Depositar (PUT na CustomerAccount gerando registro da operação na TransactionAccount): Engel
+3. Gerar Extrato de Conta por período (GET na TransactionAccount consultando por CustomerAccount e gerando registro da operação na TransactionAccount): Pablo
+4. Transferir (PUT em 2 CustomerAccounts gerando registro da operação na TransactionAccount para as 2 CustomerAccounts): Glaiton
