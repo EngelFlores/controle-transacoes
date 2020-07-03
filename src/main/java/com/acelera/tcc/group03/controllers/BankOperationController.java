@@ -30,13 +30,19 @@ public class BankOperationController {
     	return ResponseEntity.status(HttpStatus.OK).body(this.bankOperationService.accountDeposit(accountId,amount));
     }
     
+    @PutMapping("/account-withdraw/{id}/{amount}")
+    public ResponseEntity<CustomerAccount> accountWithdraw(@PathVariable("id") Long accountId, @PathVariable("amount") Double amount) {
+    	return ResponseEntity.status(HttpStatus.OK).body(this.bankOperationService.accountWithdraw(accountId,amount));
+    }    
+    
+    @PutMapping("/account-transfer/{id-source-account}/{id-target-account}/{amount}")
+    public ResponseEntity<CustomerAccount> accountTransfer(@PathVariable("id-source-account") Long sourceAccountId, @PathVariable("id-target-account") Long targetAccountId, @PathVariable("amount") Double amount) {
+        return ResponseEntity.status(HttpStatus.OK).body(this.bankOperationService.transferBetweenAccounts(sourceAccountId,targetAccountId, amount ));
+    }
+    
     /*
     @GetMapping("/get-account-statement/{id}/{ini}/{end}")
     public ResponseEntity<Optional<Double>> getAccountStatement(@PathVariable("id") Long accountId) {
-    }
-    
-    @PutMapping("/account-transfer/{id-source-account}/{id-target-account}/{amount}")
-    public ResponseEntity<TransactionType> accountTransfer(@PathVariable("id") Long accountId) {
     }
     */
 }
