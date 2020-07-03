@@ -478,6 +478,92 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "Transaction Account",
+			"item": [
+				{
+					"name": "Transaction Accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/transaction-account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction-account"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Bank Operation",
+			"item": [
+				{
+					"name": "Account Balance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/bank-operation/get-account-balance/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bank-operation",
+								"get-account-balance",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Account Deposit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzc0NDI0MX0.K-KpSM-6aU5mEHETpsG08JVqgVlMsBYt-qlxkX2__Ru0q0rekaRgf6xPq_ITAytFtSRXw48BvUCV-tzmk1Gmig",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bank-operation/account-deposit/1/50?",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bank-operation",
+								"account-deposit",
+								"1",
+								"50"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Login",
 			"request": {
 				"method": "POST",

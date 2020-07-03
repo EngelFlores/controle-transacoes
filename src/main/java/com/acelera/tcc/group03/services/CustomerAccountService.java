@@ -5,6 +5,9 @@ import com.acelera.tcc.group03.repositories.CustomerAccountRepository;
 
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class CustomerAccountService {
     private CustomerAccountRepository customerAccountRepository;
 
