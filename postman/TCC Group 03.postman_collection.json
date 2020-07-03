@@ -533,12 +533,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzc0NDI0MX0.K-KpSM-6aU5mEHETpsG08JVqgVlMsBYt-qlxkX2__Ru0q0rekaRgf6xPq_ITAytFtSRXw48BvUCV-tzmk1Gmig",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MzgxODQwNH0.PhtOfyxWsolfwgg98WytG6RxBNE51ImUf0PmDyUGr-tttd6v2l3CWuDEvique5mz1KGPJ4kqg6K30yqTeYI0MQ",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/bank-operation/account-deposit/1/50?",
+							"raw": "http://localhost:8080/bank-operation/account-deposit/1/40",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -548,13 +548,36 @@
 								"bank-operation",
 								"account-deposit",
 								"1",
-								"50"
+								"40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Account Transfer",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MzgxODQwNH0.PhtOfyxWsolfwgg98WytG6RxBNE51ImUf0PmDyUGr-tttd6v2l3CWuDEvique5mz1KGPJ4kqg6K30yqTeYI0MQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bank-operation/account-transfer/2/1/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
 							],
-							"query": [
-								{
-									"key": "",
-									"value": null
-								}
+							"port": "8080",
+							"path": [
+								"bank-operation",
+								"account-transfer",
+								"2",
+								"1",
+								"15"
 							]
 						}
 					},
