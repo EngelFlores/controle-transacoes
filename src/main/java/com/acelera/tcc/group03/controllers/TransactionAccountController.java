@@ -41,18 +41,18 @@ public class TransactionAccountController {
     @PostMapping
     public ResponseEntity<TransactionAccount> create(@RequestBody TransactionAccount transactionAccount) {
     	this.service.create(transactionAccount);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.OK).body(transactionAccount);
     }
     
     @PutMapping
     public ResponseEntity<TransactionAccount> update(@RequestBody TransactionAccount transactionAccount) {
     	this.service.update(transactionAccount);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.OK).body(transactionAccount);
     }
     
     @DeleteMapping ("/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
     	this.service.delete(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

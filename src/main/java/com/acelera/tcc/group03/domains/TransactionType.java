@@ -1,11 +1,16 @@
 package com.acelera.tcc.group03.domains;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table (name = "transaction_type")
@@ -20,6 +25,13 @@ public class TransactionType implements BaseEntity {
 	
 	@Column (name = "action")
 	private TransactionTypeAction action;
+	
+	@OneToMany (mappedBy = "transactionType")
+	@JsonIgnoreProperties("transactionType")
+	private List<TransactionAccount> transactionAccounts;
+	
+	public TransactionType() {
+	}
 	
 	@Override
 	public Long getId() {
