@@ -507,11 +507,23 @@
 			"item": [
 				{
 					"name": "Account Balance",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountId\": \"3\",\n    \"transactionTypeId\": \"1\",\n    \"transactionChannelId\": \"5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:8080/bank-operation/get-account-balance/1",
+							"raw": "http://localhost:8080/bank-operation/get-account-balance",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -519,8 +531,7 @@
 							"port": "8080",
 							"path": [
 								"bank-operation",
-								"get-account-balance",
-								"1"
+								"get-account-balance"
 							]
 						}
 					},
@@ -533,12 +544,21 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MzgxODQwNH0.PhtOfyxWsolfwgg98WytG6RxBNE51ImUf0PmDyUGr-tttd6v2l3CWuDEvique5mz1KGPJ4kqg6K30yqTeYI0MQ",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MzkwMTUwNX0.itz6KNa2Ry5jmqMbKEclyrO5SXczrSmfxycqHl0ipGFc0CvRrqXvlEcFd1pjUG--3RYFG-tM4v79W9NPaAwCaQ",
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountId\": \"1\",\n    \"transactionTypeId\": \"1\",\n    \"transactionChannelId\": \"5\",\n    \"amountToDeposit\": \"35.0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:8080/bank-operation/account-deposit/1/40",
+							"raw": "http://localhost:8080/bank-operation/account-deposit",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -546,9 +566,35 @@
 							"port": "8080",
 							"path": [
 								"bank-operation",
-								"account-deposit",
+								"account-deposit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Account Withdraw OK",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MzgyMDIzM30.fC-iMrN8Twph7vnc7yqYwO8m3za769vdpV10MNdJt-V2C1ORPACCFr0cvb0gP8zimC_oCBTWKSBwJ99soG-_jw"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bank-operation/account-withdraw/1/50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bank-operation",
+								"account-withdraw",
 								"1",
-								"40"
+								"50"
 							]
 						}
 					},
@@ -561,7 +607,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MzgxODQwNH0.PhtOfyxWsolfwgg98WytG6RxBNE51ImUf0PmDyUGr-tttd6v2l3CWuDEvique5mz1KGPJ4kqg6K30yqTeYI0MQ",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MzgyMDIzM30.fC-iMrN8Twph7vnc7yqYwO8m3za769vdpV10MNdJt-V2C1ORPACCFr0cvb0gP8zimC_oCBTWKSBwJ99soG-_jw",
 								"type": "text"
 							}
 						],

@@ -29,7 +29,7 @@ public class TransactionAccount implements BaseEntity {
 	@ManyToOne
 	@JoinColumn (name = "id_transaction_type")
 	@JsonIgnoreProperties ("transactionAccounts")
-	private TransactionChannel transactionType;
+	private TransactionType transactionType;
     
 	@ManyToOne
 	@JoinColumn (name = "id_customer_account")
@@ -57,11 +57,11 @@ public class TransactionAccount implements BaseEntity {
 		this.transactionChannel = transactionChannel;
 	}
 	
-	public TransactionChannel getTransactionType() {
+	public TransactionType getTransactionType() {
 		return this.transactionType;
 	}
 	
-	public void setTransactionType(TransactionChannel transactionType) {
+	public void setTransactionType(TransactionType transactionType) {
 		this.transactionType = transactionType;
 	}
 	

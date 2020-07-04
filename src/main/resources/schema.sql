@@ -28,7 +28,7 @@ CREATE TABLE transaction_channel (
 CREATE TABLE transaction_type (
   id                       int(05)      NOT NULL AUTO_INCREMENT,
   name                     varchar(100) NOT NULL,
-  action                   varchar(06)  NOT NULL, -- (C)redit or (D)ebit the Customer Account
+  action                   varchar(06)  NOT NULL,
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
 
@@ -36,7 +36,7 @@ CREATE TABLE transaction_type (
 CREATE TABLE customer (
   id                       int(15)      NOT NULL AUTO_INCREMENT,
   name                     varchar(100) NOT NULL,
-  type                     varchar(1)   NOT NULL, -- '(E)mployer' or '(I)ndividual'
+  type                     varchar(10)  NOT NULL,
   tin                      varchar(9)   NOT NULL,
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;

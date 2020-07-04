@@ -5,10 +5,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.acelera.tcc.group03.domains.CustomerAccount;
+import com.acelera.tcc.group03.requests.AccountBalanceRequest;
+import com.acelera.tcc.group03.requests.AccountDepositRequest;
 import com.acelera.tcc.group03.services.BankOperationService;
 
 @RestController
@@ -20,14 +23,14 @@ public class BankOperationController {
         this.bankOperationService = bankOperationService;
     }
     
-    @GetMapping("/get-account-balance/{id}")
-    public ResponseEntity<Double> getAccountBalance(@PathVariable("id") Long accountId) {
-        return ResponseEntity.status(HttpStatus.OK).body(this.bankOperationService.getAccountBalance(accountId));
+    @GetMapping("/get-account-balance")
+    public ResponseEntity<Double> getAccountBalance(@RequestBody AccountBalanceRequest accountBalanceRequest) {
+        return ResponseEntity.status(HttpStatus.OK).body(this.bankOperationService.getAccountBalance(accountBalanceRequest));
     }
     
-    @PutMapping("/account-deposit/{id}/{amount}")
-    public ResponseEntity<CustomerAccount> accountDeposit(@PathVariable("id") Long accountId, @PathVariable("amount") Double amount) {
-    	return ResponseEntity.status(HttpStatus.OK).body(this.bankOperationService.accountDeposit(accountId,amount));
+    @PutMapping("/account-deposit")
+    public ResponseEntity<CustomerAccount> accountDeposit(@RequestBody AccountDepositRequest accountDepositRequest) {
+    	return ResponseEntity.status(HttpStatus.OK).body(this.bankOperationService.accountDeposit(accountDepositRequest));
     }
     
     @PutMapping("/account-withdraw/{id}/{amount}")
