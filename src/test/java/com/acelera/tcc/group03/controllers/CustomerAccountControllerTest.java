@@ -37,7 +37,7 @@ public class CustomerAccountControllerTest {
         CustomerAccountController customerAccountController = new CustomerAccountController(customerAccountService);
         ResponseEntity<Optional<CustomerAccount>> current = customerAccountController.getCustomerAccount(customerAccountId);
 
-        assertEquals(current, ResponseEntity.status(HttpStatus.OK).body(java.util.Optional.of(customerAccount)));
+        assertEquals(current, ResponseEntity.status(HttpStatus.OK).body(Optional.of(customerAccount)));
 
     }
 

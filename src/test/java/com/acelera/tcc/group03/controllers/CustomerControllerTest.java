@@ -45,7 +45,7 @@ class CustomerControllerTest {
         CustomerController customerController = new CustomerController(customerService);
         ResponseEntity<Optional<Customer>> current = customerController.getCustomer(customerId);
 
-        assertEquals(current, ResponseEntity.status(HttpStatus.OK).body(java.util.Optional.of(customer)));
+        assertEquals(current, ResponseEntity.status(HttpStatus.OK).body(Optional.of(customer)));
 
     }
 
