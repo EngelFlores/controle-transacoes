@@ -38,10 +38,6 @@ public class CustomerAccount implements BaseEntity {
 		return this.id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public Customer getCustomer() {
 		return this.customer;
 	}

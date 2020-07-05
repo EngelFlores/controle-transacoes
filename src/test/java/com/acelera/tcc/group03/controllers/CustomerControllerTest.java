@@ -38,12 +38,12 @@ class CustomerControllerTest {
 
     @Test
     void returnStatus200WhenGetOneCustomers(){
+        Long customerId = 10L;
         Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
-        customer.setId(10L);
-        Mockito.when(customerService.getById(customer.getId())).thenReturn(java.util.Optional.of(customer));
+        Mockito.when(customerService.getById(customerId)).thenReturn(Optional.of(customer));
 
         CustomerController customerController = new CustomerController(customerService);
-        ResponseEntity<Optional<Customer>> current = customerController.getCustomer(customer.getId());
+        ResponseEntity<Optional<Customer>> current = customerController.getCustomer(customerId);
 
         assertEquals(current, ResponseEntity.status(HttpStatus.OK).body(java.util.Optional.of(customer)));
 
@@ -63,16 +63,17 @@ class CustomerControllerTest {
 
     @Test
     void returnStatus204WhenDeleteCustomers(){
+        Long customerId = 10L;
         Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
         customerService.create(customer);
-        customer.setId(12L);
 
-        doNothing().when(customerService).delete(customer.getId());
+        doNothing().when(customerService).delete(customerId);
+        Mockito.when(customerService.getById(customerId)).thenReturn(Optional.of(customer));
 
         CustomerController customerController = new CustomerController(customerService);
 
-        ResponseEntity<Void> status = customerController.deleteCostumer(customer.getId());
-        Optional<Customer> customerDeleted = customerService.getById(customer.getId());
+        ResponseEntity<Void> status = customerController.deleteCostumer(customerId);
+        Optional<Customer> customerDeleted = customerService.getById(customerId);
 
         assertEquals(status, ResponseEntity.status(HttpStatus.NO_CONTENT).build());
         assertNotEquals(customer, customerDeleted);

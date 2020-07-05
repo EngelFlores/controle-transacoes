@@ -29,27 +29,27 @@ public class TransactionChannelControllerTest {
     
     @Test
     void shouldReturnStatus200WhenGetTransactionChannelById(){
+        Long transactionChannelId = 1L;
         TransactionChannel transactionChannel = new TransactionChannel("Test");
-        transactionChannel.setId(1L);
-        Mockito.when(transactionChannelService.getById(transactionChannel.getId())).thenReturn(transactionChannel);
+        Mockito.when(transactionChannelService.getById(transactionChannelId)).thenReturn(transactionChannel);
         
         TransactionChannelController transactionChannelController = new TransactionChannelController(transactionChannelService);
-        ResponseEntity<TransactionChannel> actual = transactionChannelController.getTransactionChannel(transactionChannel.getId());
+        ResponseEntity<TransactionChannel> actual = transactionChannelController.getTransactionChannel(transactionChannelId);
         
         assertEquals(actual, ResponseEntity.status(HttpStatus.OK).body(transactionChannel));
     }
     
     @Test
     void shouldReturn204WhenDeleteTransactionChannel(){
+        Long transactionChannelId = 1L;
         TransactionChannel transactionChannel = new TransactionChannel("Test");
         transactionChannelService.create(transactionChannel);
-        transactionChannel.setId(1L);
         
-        Mockito.when(transactionChannelService.getById(transactionChannel.getId())).thenReturn(transactionChannel);
-        transactionChannelService.delete(transactionChannel.getId());
+        Mockito.when(transactionChannelService.getById(transactionChannelId)).thenReturn(transactionChannel);
+        transactionChannelService.delete(transactionChannelId);
         
         TransactionChannelController transactionChannelController = new TransactionChannelController(transactionChannelService);
-        ResponseEntity<Object> actual = transactionChannelController.delete(transactionChannel.getId());
+        ResponseEntity<Object> actual = transactionChannelController.delete(transactionChannelId);
         
         assertEquals(actual, ResponseEntity.status(HttpStatus.NO_CONTENT).build());
     }
