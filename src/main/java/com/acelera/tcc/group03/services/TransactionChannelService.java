@@ -1,11 +1,12 @@
 package com.acelera.tcc.group03.services;
 
-import com.acelera.tcc.group03.domains.TransactionChannel;
-import com.acelera.tcc.group03.repositories.TransactionChannelRepository;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.acelera.tcc.group03.domains.TransactionChannel;
+import com.acelera.tcc.group03.repositories.TransactionChannelRepository;
 
 @Service
 public class TransactionChannelService {
@@ -15,7 +16,7 @@ public class TransactionChannelService {
 
     public List<TransactionChannel> getAll (){return this.repository.findAll();}
 
-    public TransactionChannel getById(Long id){return this.repository.getOne(id);}
+    public Optional<TransactionChannel> getById(Long id){return this.repository.findById(id);}
 
     public TransactionChannel update(TransactionChannel transactionChannel){
         return this.repository.save(transactionChannel);

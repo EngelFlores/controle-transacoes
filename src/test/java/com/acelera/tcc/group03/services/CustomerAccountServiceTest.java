@@ -2,7 +2,6 @@ package com.acelera.tcc.group03.services;
 
 import com.acelera.tcc.group03.domains.*;
 import com.acelera.tcc.group03.repositories.CustomerAccountRepository;
-import com.acelera.tcc.group03.services.CustomerAccountService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

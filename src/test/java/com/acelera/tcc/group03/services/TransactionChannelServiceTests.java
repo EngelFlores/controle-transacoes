@@ -2,7 +2,6 @@ package com.acelera.tcc.group03.services;
 
 import com.acelera.tcc.group03.domains.TransactionChannel;
 import com.acelera.tcc.group03.repositories.TransactionChannelRepository;
-import com.acelera.tcc.group03.services.TransactionChannelService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

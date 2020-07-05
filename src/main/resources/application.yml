@@ -8,8 +8,10 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
         format-sql: true
+        jdbc:
+          time_zone: UTC
   datasource:
-    url: jdbc:mysql://mysql-server:3306/transaction?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/transaction?createDatabaseIfNotExist=true
     username: root
     password: secretapacas
     driverClassName: com.mysql.cj.jdbc.Driver

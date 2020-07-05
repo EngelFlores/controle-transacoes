@@ -12,34 +12,32 @@ import java.util.Optional;
 @RequestMapping("/customer-account")
 public class CustomerAccountController {
     private CustomerAccountService customerAccountService;
-
+    
     public CustomerAccountController(CustomerAccountService customerAccountService) {
         this.customerAccountService = customerAccountService;
     }
-
+    
     @PostMapping
     public ResponseEntity<CustomerAccount> create(@RequestBody CustomerAccount customerAccount){
         customerAccountService.create(customerAccount);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-
+    
     @PutMapping
     public ResponseEntity<CustomerAccount> update(@RequestBody CustomerAccount customerAccount){
         customerAccountService.update(customerAccount);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-
+    
     @GetMapping ("/{id}")
     public ResponseEntity<Optional<CustomerAccount>> getCustomerAccount(@PathVariable("id") Long id) {
         Optional<CustomerAccount> customerAccount = customerAccountService.getById(id);
         return ResponseEntity.status(HttpStatus.OK).body(customerAccount);
     }
-
+    
     @DeleteMapping ("/{id}")
     public ResponseEntity<Void> deleteCostumerAccount(@PathVariable("id") Long id){
         customerAccountService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-
-
 }

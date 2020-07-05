@@ -1,5 +1,7 @@
 package com.acelera.tcc.group03.controllers;
 
+import com.acelera.tcc.group03.domains.Customer;
+import com.acelera.tcc.group03.domains.CustomerType;
 import com.acelera.tcc.group03.domains.TransactionChannel;
 import com.acelera.tcc.group03.services.TransactionChannelService;
 import org.junit.jupiter.api.Test;
@@ -9,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -26,17 +29,18 @@ public class TransactionChannelControllerTest {
         
         assertEquals(actual, ResponseEntity.status(HttpStatus.OK).body(Collections.singletonList(transactionChannel)));
     }
+
     
     @Test
     void shouldReturnStatus200WhenGetTransactionChannelById(){
         Long transactionChannelId = 1L;
         TransactionChannel transactionChannel = new TransactionChannel("Test");
-        Mockito.when(transactionChannelService.getById(transactionChannelId)).thenReturn(transactionChannel);
+        Mockito.when(transactionChannelService.getById(transactionChannelId)).thenReturn(Optional.of(transactionChannel));
         
         TransactionChannelController transactionChannelController = new TransactionChannelController(transactionChannelService);
-        ResponseEntity<TransactionChannel> actual = transactionChannelController.getTransactionChannel(transactionChannelId);
+        ResponseEntity<Optional<TransactionChannel>> actual = transactionChannelController.getById(transactionChannelId);
         
-        assertEquals(actual, ResponseEntity.status(HttpStatus.OK).body(transactionChannel));
+        assertEquals(actual, ResponseEntity.status(HttpStatus.OK).body(Optional.of(transactionChannel)));
     }
     
     @Test
@@ -45,7 +49,7 @@ public class TransactionChannelControllerTest {
         TransactionChannel transactionChannel = new TransactionChannel("Test");
         transactionChannelService.create(transactionChannel);
         
-        Mockito.when(transactionChannelService.getById(transactionChannelId)).thenReturn(transactionChannel);
+        Mockito.when(transactionChannelService.getById(transactionChannelId)).thenReturn(Optional.of(transactionChannel));
         transactionChannelService.delete(transactionChannelId);
         
         TransactionChannelController transactionChannelController = new TransactionChannelController(transactionChannelService);

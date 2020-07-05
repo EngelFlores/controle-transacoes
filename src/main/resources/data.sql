@@ -44,3 +44,8 @@ INSERT INTO customer_account VALUES (1,1,1,20)
                                    ,(3,3,3,1000)
                                    ,(4,4,1,40000)
                                    ,(5,5,2,300000);
+
+-- Inserting into Transaction Accounts
+INSERT INTO transaction_account VALUES (1,1,1,1,200,sysdate())
+                                      ,(2,1,2,1,300,sysdate())
+                                      ,(3,1,6,1,500,sysdate());
