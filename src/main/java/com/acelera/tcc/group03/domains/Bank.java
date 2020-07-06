@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table (name = "bank")
 public class Bank implements BaseEntity {
 	@Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false)
+  @GeneratedValue (strategy = GenerationType.IDENTITY)
+  @Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 	
 	@Column (name = "name")
@@ -29,12 +29,7 @@ public class Bank implements BaseEntity {
 	@OneToMany (mappedBy = "bank")
 	@JsonIgnoreProperties("bank")
 	private List<Agency> agencies;
-
-	public Bank(String name, String number) {
-		this.name = name;
-		this.number = number;
-	}
-
+	
 	public Long getId() {
 		return this.id;
 	}

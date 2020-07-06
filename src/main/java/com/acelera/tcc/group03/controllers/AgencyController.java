@@ -41,18 +41,18 @@ public class AgencyController {
     @PostMapping
     public ResponseEntity<Agency> create(@RequestBody Agency agency) {
     	this.service.create(agency);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.OK).body(agency);
     }
     
     @PutMapping
     public ResponseEntity<Agency> update(@RequestBody Agency agency) {
     	this.service.update(agency);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.OK).body(agency);
     }
     
     @DeleteMapping ("/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
     	this.service.delete(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

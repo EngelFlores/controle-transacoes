@@ -1,14 +1,22 @@
 package com.acelera.tcc.group03.controllers;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.acelera.tcc.group03.domains.CustomerAccount;
+import com.acelera.tcc.group03.domains.TransactionAccount;
+import com.acelera.tcc.group03.requests.AccountBalanceRequest;
+import com.acelera.tcc.group03.requests.AccountDepositRequest;
+import com.acelera.tcc.group03.requests.AccountStatementRequest;
+import com.acelera.tcc.group03.requests.AccountTransferRequest;
+import com.acelera.tcc.group03.requests.AccountWithdrawRequest;
 import com.acelera.tcc.group03.services.BankOperationService;
 
 @RestController
@@ -20,29 +28,28 @@ public class BankOperationController {
         this.bankOperationService = bankOperationService;
     }
     
-    @GetMapping("/get-account-balance/{id}")
-    public ResponseEntity<Double> getAccountBalance(@PathVariable("id") Long accountId) {
-        return ResponseEntity.status(HttpStatus.OK).body(this.bankOperationService.getAccountBalance(accountId));
+    @GetMapping("/get-account-balance")
+    public ResponseEntity<Double> getAccountBalance(@RequestBody AccountBalanceRequest accountBalanceRequest) {
+        return ResponseEntity.status(HttpStatus.OK).body(this.bankOperationService.getAccountBalance(accountBalanceRequest));
     }
     
-    @PutMapping("/account-deposit/{id}/{amount}")
-    public ResponseEntity<CustomerAccount> accountDeposit(@PathVariable("id") Long accountId, @PathVariable("amount") Double amount) {
-    	return ResponseEntity.status(HttpStatus.OK).body(this.bankOperationService.accountDeposit(accountId,amount));
+    @GetMapping("/get-account-statement")
+    public ResponseEntity<List<TransactionAccount>> getAccountStatement(@RequestBody AccountStatementRequest accountStatementRequest) {
+        return ResponseEntity.status(HttpStatus.OK).body(this.bankOperationService.getAccountStatement(accountStatementRequest));
     }
     
-    @PutMapping("/account-withdraw/{id}/{amount}")
-    public ResponseEntity<CustomerAccount> accountWithdraw(@PathVariable("id") Long accountId, @PathVariable("amount") Double amount) {
-    	return ResponseEntity.status(HttpStatus.OK).body(this.bankOperationService.accountWithdraw(accountId,amount));
-    }    
-    
-    @PutMapping("/account-transfer/{id-source-account}/{id-target-account}/{amount}")
-    public ResponseEntity<CustomerAccount> accountTransfer(@PathVariable("id-source-account") Long sourceAccountId, @PathVariable("id-target-account") Long targetAccountId, @PathVariable("amount") Double amount) {
-        return ResponseEntity.status(HttpStatus.OK).body(this.bankOperationService.transferBetweenAccounts(sourceAccountId,targetAccountId, amount ));
+    @PutMapping("/account-deposit")
+    public ResponseEntity<CustomerAccount> accountDeposit(@RequestBody AccountDepositRequest accountDepositRequest) {
+    	return ResponseEntity.status(HttpStatus.OK).body(this.bankOperationService.accountDeposit(accountDepositRequest));
     }
     
-    /*
-    @GetMapping("/get-account-statement/{id}/{ini}/{end}")
-    public ResponseEntity<Optional<Double>> getAccountStatement(@PathVariable("id") Long accountId) {
+    @PutMapping("/account-withdraw")
+    public ResponseEntity<CustomerAccount> accountWithdraw(@RequestBody AccountWithdrawRequest accountWithdrawRequest) {
+       	return ResponseEntity.status(HttpStatus.OK).body(this.bankOperationService.accountWithdraw(accountWithdrawRequest));
     }
-    */
+    
+    @PutMapping("/account-transfer")
+    public ResponseEntity<CustomerAccount> accountTransfer(@RequestBody AccountTransferRequest accountTransferRequest) {
+        return ResponseEntity.status(HttpStatus.OK).body(this.bankOperationService.transferBetweenAccounts(accountTransferRequest));
+    }
 }

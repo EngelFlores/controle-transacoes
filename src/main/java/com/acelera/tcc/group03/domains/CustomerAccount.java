@@ -1,5 +1,7 @@
 package com.acelera.tcc.group03.domains;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,26 +9,33 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table (name = "customer_account")
 public class CustomerAccount implements BaseEntity {
 	@Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false)
+  @GeneratedValue (strategy = GenerationType.IDENTITY)
+  @Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 	
-    @ManyToOne
-    @JoinColumn(name = "id_customer")
+  @ManyToOne
+  @JoinColumn(name = "id_customer")
 	private Customer customer;
     
-    @ManyToOne
-    @JoinColumn(name = "id_agency")
+  @ManyToOne
+  @JoinColumn(name = "id_agency")
 	private Agency agency;
     
 	@Column (name = "account_balance")
 	private Double accountBalance;
+	
+	@OneToMany (mappedBy = "customerAccount")
+	@JsonIgnoreProperties("customerAccount")
+	private List<TransactionAccount> transactionAccounts;
 	
 	public CustomerAccount(Customer customer, Agency agency, Double accountBalance) {
 		this.customer = customer;

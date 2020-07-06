@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +26,8 @@ public class Customer implements BaseEntity {
 	@Column (name = "name")
 	private String name;
 	
-	@Column (name = "type")
+	@Column (name = "type", nullable = false)
+	@Enumerated(EnumType.STRING)
 	private CustomerType type;
 	
 	@Column (name = "tin")
@@ -35,35 +38,36 @@ public class Customer implements BaseEntity {
 		this.type = type;
 		this.tin = tin;
 	}
-
+	
+	@Override
 	public Long getId() {
-		return id;
+		return this.id;
 	}
-
+	
 	public String getName() {
-		return name;
+		return this.name;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	public CustomerType getType() {
-		return type;
+		return this.type;
 	}
-
+	
 	public void setType(CustomerType type) {
 		this.type = type;
 	}
-
+	
 	public String getTin() {
-		return tin;
+		return this.tin;
 	}
-
+	
 	public void setTin(String tin) {
 		this.tin = tin;
 	}
-
+	
 	@Override
     public String toString() {
         return "Customer ID:[" + this.getId() + "] Name: [" + this.getName() + "] Type: [" + this.getType() + "] TIN: [" + this.getTin() + "]";
