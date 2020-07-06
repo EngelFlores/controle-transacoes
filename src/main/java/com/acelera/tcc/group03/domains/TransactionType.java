@@ -33,9 +33,6 @@ public class TransactionType implements BaseEntity {
 	@JsonIgnoreProperties("transactionType")
 	private List<TransactionAccount> transactionAccounts;
 	
-	public TransactionType() {
-	}
-	
 	@Override
 	public Long getId() {
 		return this.id;

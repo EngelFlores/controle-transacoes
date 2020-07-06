@@ -1,19 +1,16 @@
 package com.acelera.tcc.group03.requests;
 
-public class BankOperationRequest {
-	private Long accountId;
+public abstract class BankOperationRequest {
+	private Long sourceAccountId;
 	private Long transactionTypeId;
 	private Long transactionChannelId;
 	
-	public BankOperationRequest() {
+	public Long getSourceAccountId() {
+		return this.sourceAccountId;
 	}
 	
-	public Long getAccountId() {
-		return this.accountId;
-	}
-	
-	public void setAccountId(Long accountId) {
-		this.accountId = accountId;
+	public void setSourceAccountId(Long sourceAccountId) {
+		this.sourceAccountId = sourceAccountId;
 	}
 	
 	public Long getTransactionTypeId() {

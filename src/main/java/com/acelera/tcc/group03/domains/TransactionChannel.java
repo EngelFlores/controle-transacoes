@@ -27,9 +27,7 @@ public class TransactionChannel implements BaseEntity {
 	@JsonIgnoreProperties("transactionChannel")
 	private List<TransactionAccount> transactionAccounts;
 	
-    public TransactionChannel() {
-    }
-    
+	@Override
 	public Long getId() {
 		return this.id;
 	}
@@ -41,15 +39,7 @@ public class TransactionChannel implements BaseEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public TransactionChannel(String name) {
-		this.name = name;
-	}
-
+	
 	@Override
 	public String toString() {
         return "TransactionChannel ID: [" + this.getId() + "] Name: [" + this.getName() + "]";

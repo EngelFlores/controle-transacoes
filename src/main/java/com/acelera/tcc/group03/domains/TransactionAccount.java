@@ -42,9 +42,6 @@ public class TransactionAccount implements BaseEntity {
     @Column (name = "transaction_moment")
     private LocalDateTime transactionMoment;
     
-    public TransactionAccount() {
-    }
-    
 	public Long getId() {
 		return this.id;
 	}

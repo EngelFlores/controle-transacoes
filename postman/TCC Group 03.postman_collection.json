@@ -6,6 +6,378 @@
 	},
 	"item": [
 		{
+			"name": "Transaction Type",
+			"item": [
+				{
+					"name": "Transaction Types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/transaction-type",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Transaction Type By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/transaction-type/6?",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction-type",
+								"6"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NEW Transaction Type",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzk3NTM0M30.In9VBIAzQaUkFcWHHzc0lhLJDjmZqXpDloAeW8wJZY6Z1KC48p1vyX1JNfKwZImPFH6ewp45Zk4zqrq5qk09mw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"State Tax\",\n\t\"action\": \"CREDIT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/transaction-type",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Transaction Type",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzk3NTM0M30.In9VBIAzQaUkFcWHHzc0lhLJDjmZqXpDloAeW8wJZY6Z1KC48p1vyX1JNfKwZImPFH6ewp45Zk4zqrq5qk09mw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"13\",\n\t\"name\": \"State Tax\",\n\t\"action\": \"DEBIT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/transaction-type/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction-type",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Transaction Type",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzk3NTM0M30.In9VBIAzQaUkFcWHHzc0lhLJDjmZqXpDloAeW8wJZY6Z1KC48p1vyX1JNfKwZImPFH6ewp45Zk4zqrq5qk09mw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"State Tax\",\n\t\"action\": \"CREDIT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/transaction-type/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction-type",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Swagger Transaction Type",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzk3NDg2OX0.W1JkOzQKGunAStS_vd-7-g6SUHeUMVTod707gc54e2dfj9AVCjF7f4NFKERj2vkxkJVQ8kC0E3-36APH2TfJpg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/swagger-ui.html?aut=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzk3NDg2OX0.W1JkOzQKGunAStS_vd-7-g6SUHeUMVTod707gc54e2dfj9AVCjF7f4NFKERj2vkxkJVQ8kC0E3-36APH2TfJpg#/transaction-type-controller",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"swagger-ui.html"
+							],
+							"query": [
+								{
+									"key": "aut",
+									"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzk3NDg2OX0.W1JkOzQKGunAStS_vd-7-g6SUHeUMVTod707gc54e2dfj9AVCjF7f4NFKERj2vkxkJVQ8kC0E3-36APH2TfJpg"
+								}
+							],
+							"hash": "/transaction-type-controller"
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Transaction Channel",
+			"item": [
+				{
+					"name": "Transaction Channels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/transaction-channel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction-channel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Transaction Channel By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/transaction-channel/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction-channel",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NEW Transaction Channel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzk3NjIyN30.I6fGJFXnW8b3J-8geKzfIajHjvUQX2USlebrvhUtGNXSuTyYHby0fBYe8bquoVbFB6WPTClr-Ov7zqsy3_ZL6g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"SMS\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/transaction-channel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction-channel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Transaction Channel",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzk3NTM0M30.In9VBIAzQaUkFcWHHzc0lhLJDjmZqXpDloAeW8wJZY6Z1KC48p1vyX1JNfKwZImPFH6ewp45Zk4zqrq5qk09mw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"7\",\n\t\"name\": \"SMS 5G\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/transaction-channel/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction-channel",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Transaction Channel",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzk3NjIyN30.I6fGJFXnW8b3J-8geKzfIajHjvUQX2USlebrvhUtGNXSuTyYHby0fBYe8bquoVbFB6WPTClr-Ov7zqsy3_ZL6g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"State Tax\",\n\t\"action\": \"CREDIT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/transaction-channel/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction-channel",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Bank",
 			"item": [
 				{
@@ -54,7 +426,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjg3NzEwM30.Mjddna3e1F2sS4X6ztC7O9HkGZBUUM94cW-Cn3DKg0_nOOV7jzXQHxL1CbOko53_zC3J6TbuAVx1sHYbU1TzCg",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzk3NzE3Mn0.RGRuT35zr4x-xzGyIsR4LhjMwGyWFGyKqLjgh0jaqF1q3mmoN3qxUXjEjA5lGzMX-VkEsRL5P4FiEuABzsHjsA",
 								"type": "text"
 							}
 						],
@@ -88,7 +460,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjg3NzEwM30.Mjddna3e1F2sS4X6ztC7O9HkGZBUUM94cW-Cn3DKg0_nOOV7jzXQHxL1CbOko53_zC3J6TbuAVx1sHYbU1TzCg",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzk3NzE3Mn0.RGRuT35zr4x-xzGyIsR4LhjMwGyWFGyKqLjgh0jaqF1q3mmoN3qxUXjEjA5lGzMX-VkEsRL5P4FiEuABzsHjsA",
 								"type": "text"
 							}
 						],
@@ -123,7 +495,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mjk2NDUxMH0.fXMGRyQqgc-tAcrwn7sKBjOuJYNJY7IXXlJCRo4WBnJuAFCVdLCC7MnNMXgvc7jtWIv6_iVmo3BjQuf4PdQv8w",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzk3NzE3Mn0.RGRuT35zr4x-xzGyIsR4LhjMwGyWFGyKqLjgh0jaqF1q3mmoN3qxUXjEjA5lGzMX-VkEsRL5P4FiEuABzsHjsA",
 								"type": "text"
 							}
 						],
@@ -214,7 +586,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MzIxMzYwOH0.imJDcBsVxnq8DxeOleGxnKQQk5Cb61JpsBYs7jiBbiYA5Opygkod9j2g5v3fzXbulQ8JXSmTQuMz5xe73f18fA",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzk3NzE3Mn0.RGRuT35zr4x-xzGyIsR4LhjMwGyWFGyKqLjgh0jaqF1q3mmoN3qxUXjEjA5lGzMX-VkEsRL5P4FiEuABzsHjsA",
 								"type": "text"
 							}
 						],
@@ -240,113 +612,21 @@
 						}
 					},
 					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Transaction Type",
-			"item": [
-				{
-					"name": "Transaction Types",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/transaction-type",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"transaction-type"
-							]
-						}
-					},
-					"response": []
 				},
 				{
-					"name": "Transaction Type By Id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/transaction-type/6?",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"transaction-type",
-								"6"
-							],
-							"query": [
-								{
-									"key": "",
-									"value": null
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "NEW Transaction Type",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MjY5MjUzN30.OEobgPL4tAS3B9qpN8glGLpGRZyetNnKfBxlO7TKuERUj4lX8KpfVnrN47aekri1E84o2swWzDExRpkAKSeZUQ",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"State Tax\",\n\t\"action\": \"CREDIT\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/transaction-type",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"transaction-type"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UPDATE Transaction Type",
+					"name": "UPDATE Agency",
 					"request": {
 						"method": "PUT",
 						"header": [
 							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzk3NzE3Mn0.RGRuT35zr4x-xzGyIsR4LhjMwGyWFGyKqLjgh0jaqF1q3mmoN3qxUXjEjA5lGzMX-VkEsRL5P4FiEuABzsHjsA",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\": \"13\",\n\t\"name\": \"State Tax\",\n\t\"action\": \"DEBIT\"\n}",
+							"raw": "{\n    \"id\": 4,\n    \"bank\": {\n        \"id\": \"5\"\n    },\n    \"name\": \"Julio de Castilhos\",\n    \"number\": \"3529\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -354,77 +634,41 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/transaction-type/",
+							"raw": "http://localhost:8080/agency",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"transaction-type",
-								""
+								"agency"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Transaction Type",
+					"name": "Agency",
 					"request": {
 						"method": "DELETE",
 						"header": [
 							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MjY5MjUzN30.OEobgPL4tAS3B9qpN8glGLpGRZyetNnKfBxlO7TKuERUj4lX8KpfVnrN47aekri1E84o2swWzDExRpkAKSeZUQ",
-								"type": "text"
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzk3NzE3Mn0.RGRuT35zr4x-xzGyIsR4LhjMwGyWFGyKqLjgh0jaqF1q3mmoN3qxUXjEjA5lGzMX-VkEsRL5P4FiEuABzsHjsA"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"State Tax\",\n\t\"action\": \"CREDIT\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:8080/transaction-type/12",
+							"raw": "http://localhost:8080/agency/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"transaction-type",
-								"12"
+								"agency",
+								"5"
 							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Swagger Transaction Type",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/swagger-ui.html#/transaction-type-controller",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"swagger-ui.html"
-							],
-							"hash": "/transaction-type-controller"
 						}
 					},
 					"response": []
@@ -478,6 +722,51 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "Customer Account",
+			"item": [
+				{
+					"name": "Customer Accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer-account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer-account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Customer Account By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer-account/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer-account",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Transaction Account",
 			"item": [
 				{
@@ -494,6 +783,26 @@
 							"port": "8080",
 							"path": [
 								"transaction-account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Transaction Account By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/transaction-account/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction-account",
+								"5"
 							]
 						}
 					},
@@ -515,7 +824,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"accountId\": \"3\",\n    \"transactionTypeId\": \"1\",\n    \"transactionChannelId\": \"5\"\n}",
+							"raw": "{\n    \"sourceAccountId\": \"1\",\n    \"transactionTypeId\": \"1\",\n    \"transactionChannelId\": \"5\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -544,13 +853,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MzkwMTUwNX0.itz6KNa2Ry5jmqMbKEclyrO5SXczrSmfxycqHl0ipGFc0CvRrqXvlEcFd1pjUG--3RYFG-tM4v79W9NPaAwCaQ",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5NDAwMjczMH0.tKJHuB8Zo6gUa4dgGZHVde4_nyW_LaVBvq_hQ9X9GXavcBn9NS83Zu72P5a7gLQNEWxMOy3G77-6JHarZR-BAw",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"accountId\": \"1\",\n    \"transactionTypeId\": \"1\",\n    \"transactionChannelId\": \"5\",\n    \"amountToDeposit\": \"35.0\"\n}",
+							"raw": "{\n    \"sourceAccountId\": \"1\",\n    \"transactionTypeId\": \"1\",\n    \"transactionChannelId\": \"5\",\n    \"amountToDeposit\": \"25.0\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -580,11 +889,20 @@
 							{
 								"key": "Authorization",
 								"type": "text",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MzgyMDIzM30.fC-iMrN8Twph7vnc7yqYwO8m3za769vdpV10MNdJt-V2C1ORPACCFr0cvb0gP8zimC_oCBTWKSBwJ99soG-_jw"
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5NDAwMjczMH0.tKJHuB8Zo6gUa4dgGZHVde4_nyW_LaVBvq_hQ9X9GXavcBn9NS83Zu72P5a7gLQNEWxMOy3G77-6JHarZR-BAw"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sourceAccountId\": \"1\",\n    \"transactionTypeId\": \"1\",\n    \"transactionChannelId\": \"5\",\n    \"amountToWithdraw\": \"5.0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:8080/bank-operation/account-withdraw/1/50",
+							"raw": "http://localhost:8080/bank-operation/account-withdraw",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -592,9 +910,42 @@
 							"port": "8080",
 							"path": [
 								"bank-operation",
-								"account-withdraw",
-								"1",
-								"50"
+								"account-withdraw"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Account Withdraw ERROR",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5Mzk4MzAwMH0._qfYIY3nj94hBNCM8aX6epebdtLXsGNVSC7EbrJZxooOAO3e9q3jrKlpWPDIfqaUEidrRLwQFjbpenxKya8PBA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sourceAccountId\": \"1\",\n    \"transactionTypeId\": \"1\",\n    \"transactionChannelId\": \"5\",\n    \"amountToWithdraw\": \"50.0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bank-operation/account-withdraw",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bank-operation",
+								"account-withdraw"
 							]
 						}
 					},
@@ -607,12 +958,21 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MzgyMDIzM30.fC-iMrN8Twph7vnc7yqYwO8m3za769vdpV10MNdJt-V2C1ORPACCFr0cvb0gP8zimC_oCBTWKSBwJ99soG-_jw",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5NDAwNDAwMH0.ZNPnV-aE1eKqJ3clrXWjaNP3bLN2YwGf6KFSk6PZrfbywcKThinPBQH8RGjCVk7vk9s4fGmICaMmQNJ4Gje0hg",
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sourceAccountId\": \"4\",\n    \"targetAccountId\": \"3\",\n    \"transactionTypeId\": \"1\",\n    \"transactionChannelId\": \"5\",\n    \"amountToTransfer\": \"18000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:8080/bank-operation/account-transfer/2/1/15",
+							"raw": "http://localhost:8080/bank-operation/account-transfer",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -620,10 +980,39 @@
 							"port": "8080",
 							"path": [
 								"bank-operation",
-								"account-transfer",
-								"2",
-								"1",
-								"15"
+								"account-transfer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Account Statement",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sourceAccountId\": \"2\",\n    \"transactionTypeId\": \"1\",\n    \"transactionChannelId\": \"5\",\n    \"amountOfDays\": \"30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bank-operation/get-account-statement",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bank-operation",
+								"get-account-statement"
 							]
 						}
 					},

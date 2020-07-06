@@ -22,7 +22,9 @@ import com.acelera.tcc.group03.services.TransactionChannelService;
 public class TransactionChannelController {
     private TransactionChannelService service;
     
-    public TransactionChannelController (TransactionChannelService service){this.service = service;}
+    public TransactionChannelController (TransactionChannelService service) {
+    	this.service = service;
+    }
     
     @GetMapping
     public ResponseEntity<List<TransactionChannel>> getAll() {
@@ -45,12 +47,12 @@ public class TransactionChannelController {
     @PutMapping
     public ResponseEntity<TransactionChannel> update(@RequestBody TransactionChannel transactionChannel) {
     	this.service.update(transactionChannel);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.OK).body(transactionChannel);
     }
     
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete (@PathVariable("id") Long id){
         this.service.delete(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 }
