@@ -15,11 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table (name = "agency")
 public class Agency implements BaseEntity {
 	@Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false)
+  @GeneratedValue (strategy = GenerationType.IDENTITY)
+  @Column(name = "id", updatable = false, nullable = false)
 	private Long id;
     
-    @Column (name = "name")
+  @Column (name = "name")
 	private String name;
 	
 	@Column (name = "number")

@@ -18,16 +18,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table (name = "customer_account")
 public class CustomerAccount implements BaseEntity {
 	@Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false)
+  @GeneratedValue (strategy = GenerationType.IDENTITY)
+  @Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 	
-    @ManyToOne
-    @JoinColumn(name = "id_customer")
+  @ManyToOne
+  @JoinColumn(name = "id_customer")
 	private Customer customer;
     
-    @ManyToOne
-    @JoinColumn(name = "id_agency")
+  @ManyToOne
+  @JoinColumn(name = "id_agency")
 	private Agency agency;
     
 	@Column (name = "account_balance")
@@ -36,9 +36,6 @@ public class CustomerAccount implements BaseEntity {
 	@OneToMany (mappedBy = "customerAccount")
 	@JsonIgnoreProperties("customerAccount")
 	private List<TransactionAccount> transactionAccounts;
-	
-	public CustomerAccount() {
-	}
 	
 	public CustomerAccount(Customer customer, Agency agency, Double accountBalance) {
 		this.customer = customer;
@@ -49,11 +46,7 @@ public class CustomerAccount implements BaseEntity {
 	public Long getId() {
 		return this.id;
 	}
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
+
 	public Customer getCustomer() {
 		return this.customer;
 	}

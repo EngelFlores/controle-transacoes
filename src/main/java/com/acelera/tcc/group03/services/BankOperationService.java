@@ -195,4 +195,41 @@ public class BankOperationService {
 		
 		this.transactionAccountService.create(transactionAccount);
 	}
+	
+	public CustomerAccount accountWithdraw(Long accountId, Double amount) {
+		Optional<CustomerAccount> optionalCustomerAccount = this.customerAccountService.getById(accountId);
+		
+		if (optionalCustomerAccount.isPresent()) {
+			CustomerAccount customerAccount = optionalCustomerAccount.get();
+			
+			if (customerAccount.getAccountBalance() >= amount) {
+				customerAccount.setAccountBalance(customerAccount.getAccountBalance() - amount);
+				this.customerAccountService.update(customerAccount);
+				return customerAccount;
+			}
+		}
+		
+		return null;
+	}
+	
+	public CustomerAccount transferBetweenAccounts(Long sourceAccountId, Long targetAccountId, Double amount) {
+		Optional<CustomerAccount> sourceOptionalCustomerAccount = this.customerAccountService.getById(sourceAccountId);
+		Optional<CustomerAccount> targetOptionalCustomerAccount = this.customerAccountService.getById(targetAccountId);
+		
+		if (sourceOptionalCustomerAccount.isPresent() && targetOptionalCustomerAccount.isPresent()) {
+			CustomerAccount sourceCustomerAccount = sourceOptionalCustomerAccount.get();
+			CustomerAccount targetCustomerAccount = targetOptionalCustomerAccount.get();
+			
+			if (sourceCustomerAccount.getAccountBalance() >= amount) {
+				sourceCustomerAccount.setAccountBalance(sourceCustomerAccount.getAccountBalance() - amount);
+				this.customerAccountService.update(sourceCustomerAccount);
+				targetCustomerAccount.setAccountBalance(targetCustomerAccount.getAccountBalance() + amount);
+				this.customerAccountService.update(targetCustomerAccount);
+				
+				return sourceCustomerAccount;
+			}
+		}
+		
+		return null;
+	}
 }
