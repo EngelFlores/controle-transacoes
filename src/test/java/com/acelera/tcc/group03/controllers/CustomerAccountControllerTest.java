@@ -42,7 +42,7 @@ public class CustomerAccountControllerTest {
     }
 
     @Test
-    void returnStatus204WhenPostCustomerAccount(){
+    void returnStatus200WhenPostCustomerAccount(){
         Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
         Bank bank = new Bank("Bank1","12345");
         Agency agency = new Agency("Agency1","123456", bank);
@@ -53,11 +53,11 @@ public class CustomerAccountControllerTest {
         CustomerAccountController customerAccountController = new CustomerAccountController(customerAccountService);
         ResponseEntity<CustomerAccount> current = customerAccountController.create(customerAccount);
 
-        assertEquals(current, ResponseEntity.status(HttpStatus.NO_CONTENT).build());
+        assertEquals(current, ResponseEntity.status(HttpStatus.OK).body(customerAccount));
     }
 
     @Test
-    void returnStatus204WhenDeleteCustomerAccount(){
+    void returnStatus200WhenDeleteCustomerAccount(){
         Long customerAccountId = 15L;
         Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
         Bank bank = new Bank("Bank1","12345");
@@ -72,8 +72,8 @@ public class CustomerAccountControllerTest {
         ResponseEntity<Void> status = customerAccountController.deleteCostumerAccount(customerAccountId);
         Optional<CustomerAccount> accountDeleted = customerAccountService.getById(customerAccountId);
 
-        assertEquals(status, ResponseEntity.status(HttpStatus.NO_CONTENT).build());
-        assertNotEquals(customer, accountDeleted);
+        assertEquals(status, ResponseEntity.status(HttpStatus.OK).build());
+        assertNotEquals(customerAccount, accountDeleted);
 
     }
 }

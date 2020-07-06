@@ -19,31 +19,31 @@ import com.acelera.tcc.group03.services.TransactionTypeService;
 public class TransactionTypeControllerTest {
     private TransactionTypeService transactionTypeService = Mockito.mock(TransactionTypeService.class);
     private TransactionTypeController transactionTypeController = new TransactionTypeController(transactionTypeService);
-    
+
     @Test
     public void mustReturnTransactionTypeListFromController() {
         // Input
     	TransactionType transactionType01 = new TransactionType();
     	transactionType01.setName("Cash Deposit");
     	transactionType01.setAction(TransactionTypeAction.CREDIT);
-    	
+
     	TransactionType transactionType02 = new TransactionType();
     	transactionType02.setName("Cash Withdraw");
     	transactionType02.setAction(TransactionTypeAction.DEBIT);
-        
+
     	List<TransactionType> transactionTypeList = Arrays.asList(transactionType01, transactionType02);
         ResponseEntity<List<TransactionType>> expected = ResponseEntity.ok(transactionTypeList);
-        
+
         // Mock
         when(transactionTypeService.getAll()).thenReturn(transactionTypeList);
-        
+
         // Execution
         ResponseEntity<List<TransactionType>> actual = transactionTypeController.getAll();
-        
+
         // Validation
         assertEquals(expected.getBody(), actual.getBody());
     }
-    
+
     @Test
     public void mustReturnTransactionTypeFromController() {
         // Input
@@ -51,13 +51,13 @@ public class TransactionTypeControllerTest {
     	TransactionType transactionType = new TransactionType();
     	transactionType.setName("Cash Deposit");
     	transactionType.setAction(TransactionTypeAction.CREDIT);
-    	
+
         // Mock
         when(transactionTypeService.getById(transactionTypeId)).thenReturn(Optional.of(transactionType));
-        
+
         TransactionTypeController transactionTypeController = new TransactionTypeController(this.transactionTypeService);
         ResponseEntity<Optional<TransactionType>> current = transactionTypeController.getById(transactionTypeId);
-        
+
         assertEquals(current, ResponseEntity.status(HttpStatus.OK).body(Optional.of(transactionType)));
     }
 }
