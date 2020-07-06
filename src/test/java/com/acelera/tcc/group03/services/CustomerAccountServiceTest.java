@@ -19,11 +19,22 @@ public class CustomerAccountServiceTest {
 
     @Test
     void saveCustomerAccount(){
-        Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
-        Bank bank = new Bank("Bank1","12345");
-        Agency agency = new Agency("Agency1","123456", bank);
+        Customer customer = new Customer();
+        customer.setName("Joao");
+        customer.setType(CustomerType.INDIVIDUAL);
+        customer.setTin("123456");
+        Bank bank = new Bank();
+        bank.setName("Bank1");
+        bank.setNumber("12345");
+        Agency agency = new Agency();
+        agency.setName("Agency1");
+        agency.setNumber("123456");
+        agency.setBank(bank);
 
-        CustomerAccount expected = new CustomerAccount(customer,agency, 1000.0);
+        CustomerAccount expected = new CustomerAccount();
+        expected.setCustomer(customer);
+        expected.setAgency(agency);
+        expected.setAccountBalance(1000.0);
 
         Mockito.when(customerAccountRepository.save(expected)).thenReturn(expected);
 
@@ -36,10 +47,22 @@ public class CustomerAccountServiceTest {
 
     @Test
     void failsToSaveCustomerAccount(){
-        Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
-        Bank bank = new Bank("Bank1","12345");
+        Customer customer = new Customer();
+        customer.setName("Joao");
+        customer.setType(CustomerType.INDIVIDUAL);
+        customer.setTin("123456");
+        Bank bank = new Bank();
+        bank.setName("Bank1");
+        bank.setNumber("12345");
+        Agency agency = new Agency();
+        agency.setName("Agency1");
+        agency.setNumber("123456");
+        agency.setBank(bank);
 
-        CustomerAccount expected = new CustomerAccount(customer,null, 1000.0);
+        CustomerAccount expected = new CustomerAccount();
+        expected.setCustomer(customer);
+        expected.setAgency(null);
+        expected.setAccountBalance(1000.0);
 
         CustomerAccountService customerAccountService = new CustomerAccountService(customerAccountRepository);
 

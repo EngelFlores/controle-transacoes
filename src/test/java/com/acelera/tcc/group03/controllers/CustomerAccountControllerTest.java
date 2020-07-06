@@ -25,12 +25,22 @@ public class CustomerAccountControllerTest {
     @Test
     void returnStatus200WhenGetCustomerAccount(){
         Long customerAccountId = 15L;
-        Double accountBalance = 1000.0;
-        Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
-        Bank bank = new Bank("Bank1","12345");
-        Agency agency = new Agency("Agency1","123456", bank);
+        Customer customer = new Customer();
+        customer.setName("Joao");
+        customer.setType(CustomerType.INDIVIDUAL);
+        customer.setTin("123456");
+        Bank bank = new Bank();
+        bank.setName("Bank1");
+        bank.setNumber("12345");
+        Agency agency = new Agency();
+        agency.setName("Agency1");
+        agency.setNumber("123456");
+        agency.setBank(bank);
 
-        CustomerAccount customerAccount = new CustomerAccount(customer,agency, accountBalance);
+        CustomerAccount customerAccount = new CustomerAccount();
+        customerAccount.setCustomer(customer);
+        customerAccount.setAgency(agency);
+        customerAccount.setAccountBalance(1000.0);
 
         Mockito.when(customerAccountService.getById(customerAccountId)).thenReturn(Optional.of(customerAccount));
 
@@ -43,11 +53,22 @@ public class CustomerAccountControllerTest {
 
     @Test
     void returnStatus200WhenPostCustomerAccount(){
-        Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
-        Bank bank = new Bank("Bank1","12345");
-        Agency agency = new Agency("Agency1","123456", bank);
+        Customer customer = new Customer();
+        customer.setName("Joao");
+        customer.setType(CustomerType.INDIVIDUAL);
+        customer.setTin("123456");
+        Bank bank = new Bank();
+        bank.setName("Bank1");
+        bank.setNumber("12345");
+        Agency agency = new Agency();
+        agency.setName("Agency1");
+        agency.setNumber("123456");
+        agency.setBank(bank);
 
-        CustomerAccount customerAccount = new CustomerAccount(customer,agency, 1000.0);
+        CustomerAccount customerAccount = new CustomerAccount();
+        customerAccount.setCustomer(customer);
+        customerAccount.setAgency(agency);
+        customerAccount.setAccountBalance(1000.0);
         Mockito.when(customerAccountService.create(customerAccount)).thenReturn(customerAccount);
 
         CustomerAccountController customerAccountController = new CustomerAccountController(customerAccountService);
@@ -59,11 +80,22 @@ public class CustomerAccountControllerTest {
     @Test
     void returnStatus200WhenDeleteCustomerAccount(){
         Long customerAccountId = 15L;
-        Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
-        Bank bank = new Bank("Bank1","12345");
-        Agency agency = new Agency("Agency1","123456", bank);
+        Customer customer = new Customer();
+        customer.setName("Joao");
+        customer.setType(CustomerType.INDIVIDUAL);
+        customer.setTin("123456");
+        Bank bank = new Bank();
+        bank.setName("Bank1");
+        bank.setNumber("12345");
+        Agency agency = new Agency();
+        agency.setName("Agency1");
+        agency.setNumber("123456");
+        agency.setBank(bank);
 
-        CustomerAccount customerAccount = new CustomerAccount(customer,agency, 1000.0);
+        CustomerAccount customerAccount = new CustomerAccount();
+        customerAccount.setCustomer(customer);
+        customerAccount.setAgency(agency);
+        customerAccount.setAccountBalance(1000.0);
 
         doNothing().when(customerAccountService).delete(customerAccountId);
 

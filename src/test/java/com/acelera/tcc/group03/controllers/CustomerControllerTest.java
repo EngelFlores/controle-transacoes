@@ -26,7 +26,10 @@ class CustomerControllerTest {
 
     @Test
     void returnStatus200WhenGetCustomers(){
-        Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
+        Customer customer = new Customer();
+        customer.setName("Joao");
+        customer.setType(CustomerType.INDIVIDUAL);
+        customer.setTin("123456");
         Mockito.when(customerService.getAll()).thenReturn(Collections.singletonList(customer));
 
         CustomerController customerController = new CustomerController(customerService);
@@ -39,7 +42,10 @@ class CustomerControllerTest {
     @Test
     void returnStatus200WhenGetOneCustomers(){
         Long customerId = 10L;
-        Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
+        Customer customer = new Customer();
+        customer.setName("Joao");
+        customer.setType(CustomerType.INDIVIDUAL);
+        customer.setTin("123456");
         Mockito.when(customerService.getById(customerId)).thenReturn(Optional.of(customer));
 
         CustomerController customerController = new CustomerController(customerService);
@@ -51,7 +57,10 @@ class CustomerControllerTest {
 
     @Test
     void returnStatus204WhenPostCustomers(){
-        Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
+        Customer customer = new Customer();
+        customer.setName("Joao");
+        customer.setType(CustomerType.INDIVIDUAL);
+        customer.setTin("123456");
         Mockito.when(customerService.create(customer)).thenReturn(customer);
 
         CustomerController customerController = new CustomerController(customerService);
@@ -64,7 +73,10 @@ class CustomerControllerTest {
     @Test
     void returnStatus204WhenDeleteCustomers(){
         Long customerId = 10L;
-        Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
+        Customer customer = new Customer();
+        customer.setName("Joao");
+        customer.setType(CustomerType.INDIVIDUAL);
+        customer.setTin("123456");
         customerService.create(customer);
 
         doNothing().when(customerService).delete(customerId);
