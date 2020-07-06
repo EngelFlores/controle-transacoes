@@ -20,7 +20,10 @@ class CustomerServiceTest {
 
     @Test
     void saveCustomer(){
-        Customer expected = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
+        Customer expected = new Customer();
+        expected.setName("Joao");
+        expected.setType(CustomerType.INDIVIDUAL);
+        expected.setTin("123456");
         Mockito.when(customerRepository.save(expected)).thenReturn(expected);
 
         CustomerService customerService = new CustomerService(customerRepository);
@@ -32,7 +35,10 @@ class CustomerServiceTest {
 
     @Test
     void failsToSaveCustomer(){
-        Customer expected = new Customer(null, CustomerType.INDIVIDUAL, null);
+        Customer expected = new Customer();
+        expected.setName(null);
+        expected.setType(CustomerType.INDIVIDUAL);
+        expected.setTin("123456");
         CustomerService customerService = new CustomerService(customerRepository);
 
         Assertions.assertThrows(NullPointerException.class,()->{

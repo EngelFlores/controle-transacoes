@@ -30,11 +30,6 @@ public class Bank implements BaseEntity {
 	@JsonIgnoreProperties("bank")
 	private List<Agency> agencies;
 
-	public Bank(String name, String number) {
-		this.name = name;
-		this.number = number;
-	}
-
 	public Long getId() {
 		return this.id;
 	}

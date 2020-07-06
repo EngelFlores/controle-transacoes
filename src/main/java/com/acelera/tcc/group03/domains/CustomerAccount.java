@@ -37,12 +37,6 @@ public class CustomerAccount implements BaseEntity {
 	@JsonIgnoreProperties("customerAccount")
 	private List<TransactionAccount> transactionAccounts;
 	
-	public CustomerAccount(Customer customer, Agency agency, Double accountBalance) {
-		this.customer = customer;
-		this.agency = agency;
-		this.accountBalance = accountBalance;
-	}
-	
 	public Long getId() {
 		return this.id;
 	}
