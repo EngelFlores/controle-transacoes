@@ -24,32 +24,30 @@ public class CustomerAccountControllerTest {
 
     @Test
     void returnStatus200WhenGetCustomerAccount(){
+        Long customerAccountId = 15L;
+        Double accountBalance = 1000.0;
         Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
-        customer.setId(10L);
-        Bank bank = new Bank(100L,"Bank1","12345");
-        Agency agency = new Agency(102L,"Agency1","123456", bank);
+        Bank bank = new Bank("Bank1","12345");
+        Agency agency = new Agency("Agency1","123456", bank);
 
-        CustomerAccount customerAccount = new CustomerAccount(customer,agency, 1000.0);
-        customerAccount.setId(15L);
+        CustomerAccount customerAccount = new CustomerAccount(customer,agency, accountBalance);
 
-        Mockito.when(customerAccountService.getById(customerAccount.getId())).thenReturn(java.util.Optional.of(customerAccount));
+        Mockito.when(customerAccountService.getById(customerAccountId)).thenReturn(Optional.of(customerAccount));
 
         CustomerAccountController customerAccountController = new CustomerAccountController(customerAccountService);
-        ResponseEntity<Optional<CustomerAccount>> current = customerAccountController.getCustomerAccount(customerAccount.getId());
+        ResponseEntity<Optional<CustomerAccount>> current = customerAccountController.getCustomerAccount(customerAccountId);
 
-        assertEquals(current, ResponseEntity.status(HttpStatus.OK).body(java.util.Optional.of(customerAccount)));
+        assertEquals(current, ResponseEntity.status(HttpStatus.OK).body(Optional.of(customerAccount)));
 
     }
 
     @Test
     void returnStatus204WhenPostCustomerAccount(){
         Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
-        customer.setId(10L);
-        Bank bank = new Bank(100L,"Bank1","12345");
-        Agency agency = new Agency(102L,"Agency1","123456", bank);
+        Bank bank = new Bank("Bank1","12345");
+        Agency agency = new Agency("Agency1","123456", bank);
 
         CustomerAccount customerAccount = new CustomerAccount(customer,agency, 1000.0);
-        customerAccount.setId(15L);
         Mockito.when(customerAccountService.create(customerAccount)).thenReturn(customerAccount);
 
         CustomerAccountController customerAccountController = new CustomerAccountController(customerAccountService);
@@ -60,20 +58,19 @@ public class CustomerAccountControllerTest {
 
     @Test
     void returnStatus204WhenDeleteCustomerAccount(){
+        Long customerAccountId = 15L;
         Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
-        customer.setId(10L);
-        Bank bank = new Bank(100L,"Bank1","12345");
-        Agency agency = new Agency(102L,"Agency1","123456", bank);
+        Bank bank = new Bank("Bank1","12345");
+        Agency agency = new Agency("Agency1","123456", bank);
 
         CustomerAccount customerAccount = new CustomerAccount(customer,agency, 1000.0);
-        customerAccount.setId(15L);
 
-        doNothing().when(customerAccountService).delete(customer.getId());
+        doNothing().when(customerAccountService).delete(customerAccountId);
 
         CustomerAccountController customerAccountController = new CustomerAccountController(customerAccountService);
 
-        ResponseEntity<Void> status = customerAccountController.deleteCostumerAccount(customerAccount.getId());
-        Optional<CustomerAccount> accountDeleted = customerAccountService.getById(customer.getId());
+        ResponseEntity<Void> status = customerAccountController.deleteCostumerAccount(customerAccountId);
+        Optional<CustomerAccount> accountDeleted = customerAccountService.getById(customerAccountId);
 
         assertEquals(status, ResponseEntity.status(HttpStatus.NO_CONTENT).build());
         assertNotEquals(customer, accountDeleted);

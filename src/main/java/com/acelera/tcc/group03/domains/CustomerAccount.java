@@ -28,9 +28,6 @@ public class CustomerAccount implements BaseEntity {
 	@Column (name = "account_balance")
 	private Double accountBalance;
 	
-	public CustomerAccount() {
-	}
-	
 	public CustomerAccount(Customer customer, Agency agency, Double accountBalance) {
 		this.customer = customer;
 		this.agency = agency;
@@ -40,11 +37,7 @@ public class CustomerAccount implements BaseEntity {
 	public Long getId() {
 		return this.id;
 	}
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
+
 	public Customer getCustomer() {
 		return this.customer;
 	}

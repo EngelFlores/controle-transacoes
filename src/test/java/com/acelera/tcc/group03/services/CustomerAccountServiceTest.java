@@ -2,7 +2,6 @@ package com.acelera.tcc.group03.services;
 
 import com.acelera.tcc.group03.domains.*;
 import com.acelera.tcc.group03.repositories.CustomerAccountRepository;
-import com.acelera.tcc.group03.services.CustomerAccountService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,12 +20,10 @@ public class CustomerAccountServiceTest {
     @Test
     void saveCustomerAccount(){
         Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
-        customer.setId(10L);
-        Bank bank = new Bank(100L,"Bank1","12345");
-        Agency agency = new Agency(102L,"Agency1","123456", bank);
+        Bank bank = new Bank("Bank1","12345");
+        Agency agency = new Agency("Agency1","123456", bank);
 
         CustomerAccount expected = new CustomerAccount(customer,agency, 1000.0);
-        expected.setId(15L);
 
         Mockito.when(customerAccountRepository.save(expected)).thenReturn(expected);
 
@@ -40,12 +37,9 @@ public class CustomerAccountServiceTest {
     @Test
     void failsToSaveCustomerAccount(){
         Customer customer = new Customer("Joao", CustomerType.INDIVIDUAL, "123456");
-        customer.setId(10L);
-        Bank bank = new Bank(100L,"Bank1","12345");
-        Agency agency = new Agency(102L,"Agency1","123456", bank);
+        Bank bank = new Bank("Bank1","12345");
 
         CustomerAccount expected = new CustomerAccount(customer,null, 1000.0);
-        expected.setId(15L);
 
         CustomerAccountService customerAccountService = new CustomerAccountService(customerAccountRepository);
 

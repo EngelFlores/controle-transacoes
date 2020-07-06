@@ -58,6 +58,6 @@ public class TransactionTypeControllerTest {
         TransactionTypeController transactionTypeController = new TransactionTypeController(this.transactionTypeService);
         ResponseEntity<Optional<TransactionType>> current = transactionTypeController.getById(transactionTypeId);
         
-        assertEquals(current, ResponseEntity.status(HttpStatus.OK).body(java.util.Optional.of(transactionType)));
+        assertEquals(current, ResponseEntity.status(HttpStatus.OK).body(Optional.of(transactionType)));
     }
 }

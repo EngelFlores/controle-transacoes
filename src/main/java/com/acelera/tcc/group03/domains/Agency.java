@@ -30,11 +30,7 @@ public class Agency implements BaseEntity {
 	@JsonIgnoreProperties ("agencies")
 	private Bank bank;
 
-	public Agency() {
-	}
-
-	public Agency(Long id, String name, String number, Bank bank) {
-		this.id = id;
+	public Agency(String name, String number, Bank bank) {
 		this.name = name;
 		this.number = number;
 		this.bank = bank;
