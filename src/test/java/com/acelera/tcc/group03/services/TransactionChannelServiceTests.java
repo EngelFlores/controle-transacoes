@@ -14,33 +14,32 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
 public class TransactionChannelServiceTests {
-
     @Mock
     private TransactionChannelRepository transactionChannelRepository;
-
+    
     @InjectMocks
     private TransactionChannelService transactionChannelService;
-
+    
     @Test
     void shouldSaveWithSuccessTransactionChannel(){
-        TransactionChannel expected = new TransactionChannel("Test");
-
+        TransactionChannel expected = new TransactionChannel();
+        expected.setName("Test");
+        
         Mockito.when(transactionChannelRepository.save(expected)).thenReturn(expected);
-
+        
         TransactionChannel actual = transactionChannelService.create(expected);
-
+        
         assertEquals(expected, actual);
         Mockito.verify(transactionChannelRepository, Mockito.times(1)).save(expected);
     }
-
+    
     @Test
     void shouldFailToSaveTransactionChannelWithNoName(){
-        TransactionChannel expected = new TransactionChannel(null);
+        TransactionChannel expected = new TransactionChannel();
 
         Assertions.assertThrows(NullPointerException.class, () -> {
             transactionChannelService.create(expected);
         });
         Mockito.verifyNoInteractions(transactionChannelRepository);
     }
-
 }

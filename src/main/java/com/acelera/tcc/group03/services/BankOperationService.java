@@ -1,7 +1,9 @@
 package com.acelera.tcc.group03.services;
 
+import java.text.NumberFormat;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -22,6 +24,8 @@ import com.acelera.tcc.group03.requests.AccountWithdrawRequest;
 
 @Service
 public class BankOperationService {
+    private static final NumberFormat CURRENCY_FORMAT = NumberFormat.getCurrencyInstance(Locale.US);
+    
 	private TransactionTypeService transactionTypeService;
 	private TransactionChannelService transactionChannelService;
 	private CustomerAccountService customerAccountService;
@@ -107,7 +111,7 @@ public class BankOperationService {
 		CustomerAccount customerAccount = optionalCustomerAccount.get();
 		
 		if (customerAccount.getAccountBalance() < accountWithdrawRequest.getAmountToWithdraw()) {
-			throw new CustomerAccountInsufficientFundsForWithdraw();
+			throw new CustomerAccountInsufficientFundsForWithdraw("Insufficient funds (" + BankOperationService.CURRENCY_FORMAT.format(customerAccount.getAccountBalance()) + ") in the Customer Account " + accountWithdrawRequest.getSourceAccountId() + " for the requested Withdraw (" + BankOperationService.CURRENCY_FORMAT.format(accountWithdrawRequest.getAmountToWithdraw()) + ").");
 		}
 		
 		customerAccount.setAccountBalance(customerAccount.getAccountBalance() - accountWithdrawRequest.getAmountToWithdraw());
@@ -143,7 +147,7 @@ public class BankOperationService {
 		CustomerAccount targetCustomerAccount = targetOptionalCustomerAccount.get();
 		
 		if (sourceCustomerAccount.getAccountBalance() < accountTransferRequest.getAmountToTransfer()) {
-			throw new CustomerAccountInsufficientFundsForWithdraw();
+			throw new CustomerAccountInsufficientFundsForWithdraw("Insufficient funds (" + BankOperationService.CURRENCY_FORMAT.format(sourceCustomerAccount.getAccountBalance()) + ") in the Customer Account " + accountTransferRequest.getSourceAccountId() + " for the requested Withdraw (" + BankOperationService.CURRENCY_FORMAT.format(accountTransferRequest.getAmountToTransfer()) + ").");
 		}
 		
 		sourceCustomerAccount.setAccountBalance(sourceCustomerAccount.getAccountBalance() - accountTransferRequest.getAmountToTransfer());
@@ -194,42 +198,5 @@ public class BankOperationService {
 		transactionAccount.setTransactionMoment(LocalDateTime.now());
 		
 		this.transactionAccountService.create(transactionAccount);
-	}
-	
-	public CustomerAccount accountWithdraw(Long accountId, Double amount) {
-		Optional<CustomerAccount> optionalCustomerAccount = this.customerAccountService.getById(accountId);
-		
-		if (optionalCustomerAccount.isPresent()) {
-			CustomerAccount customerAccount = optionalCustomerAccount.get();
-			
-			if (customerAccount.getAccountBalance() >= amount) {
-				customerAccount.setAccountBalance(customerAccount.getAccountBalance() - amount);
-				this.customerAccountService.update(customerAccount);
-				return customerAccount;
-			}
-		}
-		
-		return null;
-	}
-	
-	public CustomerAccount transferBetweenAccounts(Long sourceAccountId, Long targetAccountId, Double amount) {
-		Optional<CustomerAccount> sourceOptionalCustomerAccount = this.customerAccountService.getById(sourceAccountId);
-		Optional<CustomerAccount> targetOptionalCustomerAccount = this.customerAccountService.getById(targetAccountId);
-		
-		if (sourceOptionalCustomerAccount.isPresent() && targetOptionalCustomerAccount.isPresent()) {
-			CustomerAccount sourceCustomerAccount = sourceOptionalCustomerAccount.get();
-			CustomerAccount targetCustomerAccount = targetOptionalCustomerAccount.get();
-			
-			if (sourceCustomerAccount.getAccountBalance() >= amount) {
-				sourceCustomerAccount.setAccountBalance(sourceCustomerAccount.getAccountBalance() - amount);
-				this.customerAccountService.update(sourceCustomerAccount);
-				targetCustomerAccount.setAccountBalance(targetCustomerAccount.getAccountBalance() + amount);
-				this.customerAccountService.update(targetCustomerAccount);
-				
-				return sourceCustomerAccount;
-			}
-		}
-		
-		return null;
 	}
 }
