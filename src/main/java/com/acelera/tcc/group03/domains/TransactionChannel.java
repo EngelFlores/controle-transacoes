@@ -26,11 +26,7 @@ public class TransactionChannel implements BaseEntity {
 	@OneToMany (mappedBy = "transactionChannel")
 	@JsonIgnoreProperties("transactionChannel")
 	private List<TransactionAccount> transactionAccounts;
-
-	public TransactionChannel(String name) {
-		this.name = name;
-	}
-
+	
 	@Override
 	public Long getId() {
 		return this.id;
